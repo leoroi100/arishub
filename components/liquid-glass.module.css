@@ -2,17 +2,17 @@
   --lg-radius: 999px;
   --lg-blur: 28px;
   --lg-saturate: 170%;
-  --lg-base-top: rgba(66, 52, 60, 0.36);
-  --lg-base-bottom: rgba(15, 14, 18, 0.18);
-  --lg-density-top: rgba(255, 255, 255, 0.18);
-  --lg-density-mid: rgba(255, 255, 255, 0.065);
-  --lg-density-bottom: rgba(255, 255, 255, 0.02);
-  --lg-border: rgba(255, 255, 255, 0.14);
+  --lg-base-top: rgba(76, 48, 58, 0.48);
+  --lg-base-bottom: rgba(18, 14, 18, 0.34);
+  --lg-density-top: rgba(255, 255, 255, 0.14);
+  --lg-density-mid: rgba(255, 255, 255, 0.052);
+  --lg-density-bottom: rgba(255, 255, 255, 0.016);
+  --lg-border: rgba(255, 255, 255, 0.12);
   --lg-inner-border: rgba(255, 255, 255, 0.16);
-  --lg-bottom-tint: rgba(255, 255, 255, 0.015);
-  --lg-shadow-deep: rgba(0, 0, 0, 0.26);
-  --lg-shadow-soft: rgba(0, 0, 0, 0.14);
-  --lg-highlight-opacity: 0.68;
+  --lg-bottom-tint: rgba(120, 34, 62, 0.045);
+  --lg-shadow-deep: rgba(0, 0, 0, 0.28);
+  --lg-shadow-soft: rgba(0, 0, 0, 0.15);
+  --lg-highlight-opacity: 0.64;
   position: relative;
   display: block;
   width: fit-content;
@@ -22,8 +22,8 @@
   background:
     radial-gradient(
       140% 120% at 50% -24%,
-      rgba(255, 255, 255, 0.14) 0%,
-      rgba(255, 255, 255, 0.035) 34%,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.028) 34%,
       transparent 62%
     ),
     linear-gradient(
@@ -57,14 +57,14 @@
   background:
     radial-gradient(
       120% 90% at 50% -8%,
-      rgba(255, 255, 255, 0.22) 0%,
-      rgba(255, 255, 255, 0.09) 24%,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.076) 24%,
       transparent 58%
     ),
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.12) 0%,
-      rgba(255, 255, 255, 0.04) 32%,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.035) 32%,
       var(--lg-bottom-tint) 100%
     );
   box-shadow:
@@ -81,13 +81,13 @@
   background:
     linear-gradient(
       112deg,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0.09) 12%,
-      rgba(255, 255, 255, 0.024) 26%,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.076) 12%,
+      rgba(255, 255, 255, 0.02) 26%,
       transparent 42%
     ),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 18%);
-  opacity: 0.76;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.082), transparent 18%);
+  opacity: 0.72;
   pointer-events: none;
 }
 
@@ -99,14 +99,14 @@
     linear-gradient(
       104deg,
       transparent 0%,
-      rgba(255, 255, 255, 0.05) 16%,
-      rgba(255, 255, 255, 0.24) 46%,
-      rgba(255, 255, 255, 0.08) 70%,
+      rgba(255, 255, 255, 0.04) 16%,
+      rgba(255, 255, 255, 0.22) 46%,
+      rgba(255, 255, 255, 0.072) 70%,
       transparent 100%
     ),
     radial-gradient(
       82% 92% at 50% -4%,
-      rgba(255, 255, 255, 0.32),
+      rgba(255, 255, 255, 0.28),
       transparent 60%
     );
   mix-blend-mode: screen;
@@ -139,31 +139,31 @@
   --lg-radius: 28px;
   --lg-blur: 30px;
   --lg-saturate: 176%;
-  --lg-base-top: rgba(53, 39, 45, 0.38);
-  --lg-base-bottom: rgba(14, 15, 18, 0.2);
-  --lg-density-top: rgba(255, 255, 255, 0.16);
-  --lg-density-mid: rgba(255, 255, 255, 0.058);
-  --lg-density-bottom: rgba(255, 255, 255, 0.018);
-  --lg-border: rgba(255, 255, 255, 0.13);
+  --lg-base-top: rgba(74, 46, 56, 0.5);
+  --lg-base-bottom: rgba(19, 15, 19, 0.36);
+  --lg-density-top: rgba(255, 255, 255, 0.13);
+  --lg-density-mid: rgba(255, 255, 255, 0.046);
+  --lg-density-bottom: rgba(255, 255, 255, 0.014);
+  --lg-border: rgba(255, 255, 255, 0.11);
 }
 
 .neutral {
-  --lg-base-top: rgba(58, 45, 50, 0.34);
-  --lg-base-bottom: rgba(15, 14, 18, 0.18);
-  --lg-density-top: rgba(255, 255, 255, 0.18);
-  --lg-density-mid: rgba(255, 255, 255, 0.062);
-  --lg-density-bottom: rgba(255, 255, 255, 0.018);
-  --lg-bottom-tint: rgba(255, 255, 255, 0.012);
+  --lg-base-top: rgba(72, 49, 58, 0.46);
+  --lg-base-bottom: rgba(18, 15, 18, 0.33);
+  --lg-density-top: rgba(255, 255, 255, 0.14);
+  --lg-density-mid: rgba(255, 255, 255, 0.05);
+  --lg-density-bottom: rgba(255, 255, 255, 0.015);
+  --lg-bottom-tint: rgba(104, 28, 53, 0.03);
 }
 
 .accent {
-  --lg-base-top: rgba(84, 24, 44, 0.4);
-  --lg-base-bottom: rgba(26, 12, 18, 0.2);
-  --lg-density-top: rgba(255, 255, 255, 0.18);
-  --lg-density-mid: rgba(255, 255, 255, 0.066);
-  --lg-density-bottom: rgba(255, 255, 255, 0.02);
-  --lg-bottom-tint: rgba(143, 23, 56, 0.09);
-  --lg-border: rgba(255, 255, 255, 0.16);
+  --lg-base-top: rgba(98, 28, 52, 0.5);
+  --lg-base-bottom: rgba(34, 12, 22, 0.35);
+  --lg-density-top: rgba(255, 255, 255, 0.145);
+  --lg-density-mid: rgba(255, 255, 255, 0.052);
+  --lg-density-bottom: rgba(255, 255, 255, 0.016);
+  --lg-bottom-tint: rgba(143, 23, 56, 0.08);
+  --lg-border: rgba(255, 255, 255, 0.13);
 }
 
 .interactive:hover {
