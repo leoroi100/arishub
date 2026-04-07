@@ -25,10 +25,30 @@ function BackgroundField({ scene }: { scene: THREE.Scene }) {
 
   const layers = useMemo(
     () => [
-      { position: [0, 0, -3] as [number, number, number], scale: [viewport.width, viewport.height, 1] as [number, number, number], color: "#090608", opacity: 1 },
-      { position: [0, viewport.height * 0.1, -2.2] as [number, number, number], scale: [viewport.width * 0.94, viewport.height * 0.4, 1] as [number, number, number], color: "#8f1738", opacity: 0.2 },
-      { position: [viewport.width * 0.22, viewport.height * 0.16, -1.8] as [number, number, number], scale: [viewport.width * 0.26, viewport.height * 0.16, 1] as [number, number, number], color: "#ffffff", opacity: 0.08 },
-      { position: [-viewport.width * 0.2, -viewport.height * 0.08, -1.5] as [number, number, number], scale: [viewport.width * 0.3, viewport.height * 0.18, 1] as [number, number, number], color: "#d44474", opacity: 0.08 }
+      {
+        position: [0, 0, -3] as [number, number, number],
+        scale: [viewport.width, viewport.height, 1] as [number, number, number],
+        color: "#070607",
+        opacity: 1,
+      },
+      {
+        position: [0, viewport.height * 0.02, -2.25] as [number, number, number],
+        scale: [viewport.width * 0.82, viewport.height * 0.24, 1] as [number, number, number],
+        color: "#7d1734",
+        opacity: 0.22,
+      },
+      {
+        position: [0, viewport.height * 0.16, -2] as [number, number, number],
+        scale: [viewport.width * 0.52, viewport.height * 0.12, 1] as [number, number, number],
+        color: "#ffffff",
+        opacity: 0.055,
+      },
+      {
+        position: [viewport.width * 0.36, 0, -1.8] as [number, number, number],
+        scale: [viewport.width * 0.14, viewport.height * 0.34, 1] as [number, number, number],
+        color: "#d44474",
+        opacity: 0.05,
+      },
     ],
     [viewport.height, viewport.width],
   );
@@ -63,7 +83,7 @@ function FluidBarMesh() {
 
   useFrame((state, delta) => {
     const visible = state.viewport.getCurrentViewport(camera, [0, 0, 15]);
-    const targetScale = Math.min(0.17, (visible.width * 0.92) / geoWidthRef.current);
+    const targetScale = Math.min(0.162, (visible.width * 0.91) / geoWidthRef.current);
 
     if (ref.current) {
       easing.damp3(ref.current.position, [0, 0, 15], 0.18, delta);
@@ -88,14 +108,14 @@ function FluidBarMesh() {
         <MeshTransmissionMaterial
           buffer={buffer.texture}
           transmission={1}
-          roughness={0}
-          thickness={10}
-          ior={1.15}
-          chromaticAberration={0.04}
-          anisotropy={0.01}
+          roughness={0.08}
+          thickness={8}
+          ior={1.12}
+          chromaticAberration={0.012}
+          anisotropy={0.04}
           color="#ffffff"
-          attenuationColor="#f7d3dc"
-          attenuationDistance={0.22}
+          attenuationColor="#f0bdd0"
+          attenuationDistance={0.35}
         />
       </mesh>
     </>

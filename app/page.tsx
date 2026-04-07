@@ -29,20 +29,24 @@ export default function Home() {
           className={styles.navShell}
           contentClassName={styles.navShellContent}
         >
-          <a className={styles.brand} href="#top">
-            <BrandMark />
-            <span className={styles.brandText}>
-              Aris<span>Hub</span>
-            </span>
-          </a>
+          <div className={styles.navBrandSlot}>
+            <a className={styles.brand} href="#top">
+              <BrandMark />
+              <span className={styles.brandText}>
+                Aris<span>Hub</span>
+              </span>
+            </a>
+          </div>
 
-          <nav className={styles.navLinks} aria-label="Navegacao principal">
-            {navItems.map((item) => (
-              <a key={item.href} href={item.href}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
+          <div className={styles.navCenterTrack}>
+            <nav className={styles.navLinks} aria-label="Navegacao principal">
+              {navItems.map((item) => (
+                <a key={item.href} href={item.href}>
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          </div>
 
           <div className={styles.navActions}>
             <LiquidGlass
