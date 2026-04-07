@@ -1,6 +1,7 @@
 .page {
   position: relative;
   padding-bottom: 120px;
+  overflow-x: hidden;
 }
 
 .page::before {
@@ -47,10 +48,30 @@
 }
 
 .glassNavbar {
+  position: relative;
   display: block;
   width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.3);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(16, 16, 18, 0.74);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 44px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(28px) saturate(140%);
+}
+
+.glassNavbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 34%),
+    radial-gradient(circle at 15% 0%, rgba(255, 255, 255, 0.08), transparent 30%),
+    radial-gradient(circle at 85% 100%, rgba(143, 23, 56, 0.16), transparent 28%);
+  pointer-events: none;
 }
 
 .navbarInner {
@@ -122,6 +143,27 @@
   box-shadow: 0 14px 34px rgba(123, 18, 49, 0.28);
 }
 
+.glassPrimaryButton :global(.glass),
+.glassGhostButton :global(.glass),
+.glassEyebrow :global(.glass),
+.glassChip :global(.glass) {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)),
+    rgba(18, 18, 20, 0.26);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.03),
+    0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
+.glassPrimaryButton :global(.glass__warp),
+.glassGhostButton :global(.glass__warp),
+.glassEyebrow :global(.glass__warp),
+.glassChip :global(.glass__warp) {
+  opacity: 0.96;
+}
+
 .glassEyebrow {
   border-radius: 999px;
 }
@@ -148,7 +190,7 @@
 
 .primaryButton {
   min-width: 156px;
-  background: linear-gradient(180deg, rgba(188, 33, 81, 0.34), rgba(117, 18, 47, 0.38));
+  background: linear-gradient(180deg, rgba(188, 33, 81, 0.38), rgba(117, 18, 47, 0.42));
   color: #fff8fb;
 }
 
@@ -242,7 +284,14 @@
   display: block;
   width: 100%;
   border-radius: 28px;
-  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+    rgba(10, 10, 12, 0.78);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    var(--shadow);
+  backdrop-filter: blur(26px) saturate(130%);
 }
 
 .consoleShell {
@@ -491,6 +540,11 @@
   display: block;
   width: 100%;
   border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+    rgba(10, 10, 12, 0.7);
+  backdrop-filter: blur(18px) saturate(125%);
 }
 
 .metricCard {
@@ -644,6 +698,11 @@
   display: block;
   width: 100%;
   border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+    rgba(10, 10, 12, 0.76);
+  backdrop-filter: blur(24px) saturate(128%);
 }
 
 .ctaPanel {

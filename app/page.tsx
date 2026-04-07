@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <main className={styles.page}>
       <header className={styles.navbar}>
-        <GlassSurface className={styles.glassNavbar} variant="navbar">
+        <div className={styles.glassNavbar}>
           <div className={styles.navbarInner}>
             <a className={styles.brand} href="#top">
               <BrandMark />
@@ -53,7 +53,7 @@ export default function Home() {
               </GlassSurface>
             </div>
           </div>
-        </GlassSurface>
+        </div>
       </header>
 
       <section className={styles.heroSection} id="top">
@@ -95,7 +95,7 @@ export default function Home() {
       </section>
 
       <section className={styles.consoleSection}>
-        <GlassSurface className={styles.glassConsole} variant="panel">
+        <div className={styles.glassConsole}>
           <div className={styles.consoleShell}>
             <div className={styles.consoleTopbar}>
               <div className={styles.consoleDots}>
@@ -161,21 +161,17 @@ export default function Home() {
               </aside>
             </div>
           </div>
-        </GlassSurface>
+        </div>
       </section>
 
       <section className={styles.metricsBar}>
         {capabilityMetrics.map((metric) => (
-          <GlassSurface
-            className={styles.glassMetric}
-            key={metric.value}
-            variant="metric"
-          >
+          <div className={styles.glassMetric} key={metric.value}>
             <article className={styles.metricCard}>
               <strong>{metric.value}</strong>
               <span>{metric.label}</span>
             </article>
-          </GlassSurface>
+          </div>
         ))}
       </section>
 
@@ -291,7 +287,7 @@ export default function Home() {
       </section>
 
       <section className={styles.ctaSection}>
-        <GlassSurface className={styles.glassCta} variant="panel">
+        <div className={styles.glassCta}>
           <div className={styles.ctaPanel}>
             <span className={styles.sectionEyebrow}>ArisHub</span>
             <h2>A base agora esta mais proxima do nivel premium que esse produto precisa.</h2>
@@ -300,7 +296,7 @@ export default function Home() {
               auth, dashboard de BCs, advertisers, pixels e bulk launch.
             </p>
           </div>
-        </GlassSurface>
+        </div>
       </section>
     </main>
   );
