@@ -25,6 +25,7 @@ export interface LiquidEtherProps {
   takeoverDuration?: number;
   autoResumeDelay?: number;
   autoRampDuration?: number;
+  pauseOnHover?: boolean;
 }
 
 interface SimOptions {
@@ -47,6 +48,7 @@ interface LiquidEtherWebGL {
     speed: number;
     resumeDelay: number;
     rampDurationMs: number;
+    pauseOnHover: boolean;
     mouse?: { autoIntensity: number; takeoverDuration: number };
     forceStop: () => void;
   };
@@ -77,7 +79,8 @@ export default function LiquidEther({
   autoIntensity = 2.2,
   takeoverDuration = 0.25,
   autoResumeDelay = 1000,
-  autoRampDuration = 0.6
+  autoRampDuration = 0.6,
+  pauseOnHover = true
 }: LiquidEtherProps) {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const webglRef = useRef<LiquidEtherWebGL | null>(null);
@@ -316,6 +319,7 @@ export default function LiquidEther({
       speed: number;
       resumeDelay: number;
       rampDurationMs: number;
+      pauseOnHover: boolean;
       active = false;
       current = new THREE.Vector2(0, 0);
       target = new THREE.Vector2();
@@ -326,7 +330,7 @@ export default function LiquidEther({
       constructor(
         mouse: MouseClass,
         manager: WebGLManager,
-        opts: { enabled: boolean; speed: number; resumeDelay: number; rampDuration: number }
+        opts: { enabled: boolean; speed: number; resumeDelay: number; rampDuration: number; pauseOnHover?: boolean }
       ) {
         this.mouse = mouse;
         this.manager = manager;
@@ -334,6 +338,7 @@ export default function LiquidEther({
         this.speed = opts.speed;
         this.resumeDelay = opts.resumeDelay || 3000;
         this.rampDurationMs = (opts.rampDuration || 0) * 1000;
+        this.pauseOnHover = opts.pauseOnHover ?? true;
         this.pickNewTarget();
       }
       pickNewTarget() {
@@ -352,7 +357,7 @@ export default function LiquidEther({
           if (this.active) this.forceStop();
           return;
         }
-        if (this.mouse.isHoverInside) {
+        if (this.pauseOnHover && this.mouse.isHoverInside) {
           if (this.active) this.forceStop();
           return;
         }
@@ -1026,7 +1031,8 @@ export default function LiquidEther({
           enabled: props.autoDemo,
           speed: props.autoSpeed,
           resumeDelay: props.autoResumeDelay,
-          rampDuration: props.autoRampDuration
+          rampDuration: props.autoRampDuration,
+          pauseOnHover: props.pauseOnHover
         });
         this.init();
         window.addEventListener('resize', this._resize);
@@ -1100,7 +1106,8 @@ export default function LiquidEther({
       autoIntensity,
       takeoverDuration,
       autoResumeDelay,
-      autoRampDuration
+      autoRampDuration,
+      pauseOnHover
     });
     webglRef.current = webgl;
 
@@ -1192,7 +1199,8 @@ export default function LiquidEther({
     autoIntensity,
     takeoverDuration,
     autoResumeDelay,
-    autoRampDuration
+    autoRampDuration,
+    pauseOnHover
   ]);
 
   useEffect(() => {
@@ -1218,6 +1226,7 @@ export default function LiquidEther({
       webgl.autoDriver.speed = autoSpeed;
       webgl.autoDriver.resumeDelay = autoResumeDelay;
       webgl.autoDriver.rampDurationMs = autoRampDuration * 1000;
+      webgl.autoDriver.pauseOnHover = pauseOnHover;
       if (webgl.autoDriver.mouse) {
         webgl.autoDriver.mouse.autoIntensity = autoIntensity;
         webgl.autoDriver.mouse.takeoverDuration = takeoverDuration;
@@ -1240,7 +1249,8 @@ export default function LiquidEther({
     autoIntensity,
     takeoverDuration,
     autoResumeDelay,
-    autoRampDuration
+    autoRampDuration,
+    pauseOnHover
   ]);
 
   return (

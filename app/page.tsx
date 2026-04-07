@@ -34,6 +34,7 @@ export default function Home() {
           iterationsPoisson={32}
           iterationsViscous={32}
           mouseForce={20}
+          pauseOnHover={false}
           resolution={0.5}
           viscous={30}
         />
