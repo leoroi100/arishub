@@ -1,0 +1,201 @@
+.root {
+  --lg-radius: 999px;
+  --lg-blur: 24px;
+  --lg-saturate: 160%;
+  --lg-base-top: rgba(34, 35, 40, 0.64);
+  --lg-base-bottom: rgba(14, 15, 18, 0.44);
+  --lg-density-top: rgba(255, 255, 255, 0.1);
+  --lg-density-mid: rgba(255, 255, 255, 0.04);
+  --lg-density-bottom: rgba(255, 255, 255, 0.016);
+  --lg-border: rgba(255, 255, 255, 0.16);
+  --lg-inner-border: rgba(255, 255, 255, 0.12);
+  --lg-bottom-tint: rgba(255, 255, 255, 0.02);
+  --lg-shadow-deep: rgba(0, 0, 0, 0.3);
+  --lg-shadow-soft: rgba(0, 0, 0, 0.2);
+  --lg-highlight-opacity: 0.52;
+  position: relative;
+  display: block;
+  width: fit-content;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--lg-radius);
+  background:
+    linear-gradient(
+      180deg,
+      var(--lg-density-top) 0%,
+      var(--lg-density-mid) 40%,
+      var(--lg-density-bottom) 100%
+    ),
+    linear-gradient(180deg, var(--lg-base-top) 0%, var(--lg-base-bottom) 100%);
+  border: 1px solid var(--lg-border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.03),
+    0 18px 52px var(--lg-shadow-deep),
+    0 6px 18px var(--lg-shadow-soft),
+    0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+  -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+  transform: translateZ(0);
+  transition:
+    transform 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      120% 88% at 50% 0%,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.07) 28%,
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.09) 0%,
+      rgba(255, 255, 255, 0.03) 34%,
+      var(--lg-bottom-tint) 100%
+    );
+  box-shadow:
+    inset 0 1px 0 var(--lg-inner-border),
+    inset 0 -14px 18px rgba(255, 255, 255, 0.01);
+  pointer-events: none;
+}
+
+.root::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      112deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.07) 14%,
+      rgba(255, 255, 255, 0.018) 28%,
+      transparent 44%
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 20%);
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.highlight {
+  position: absolute;
+  inset: -34% 8% 44%;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      105deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.04) 18%,
+      rgba(255, 255, 255, 0.18) 46%,
+      rgba(255, 255, 255, 0.06) 72%,
+      transparent 100%
+    ),
+    radial-gradient(
+      82% 92% at 50% 0%,
+      rgba(255, 255, 255, 0.26),
+      transparent 62%
+    );
+  mix-blend-mode: screen;
+  opacity: var(--lg-highlight-opacity);
+  transform: translateY(0);
+  pointer-events: none;
+  transition:
+    opacity 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    filter 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+}
+
+.pill {
+  --lg-radius: 999px;
+  --lg-blur: 22px;
+  --lg-saturate: 155%;
+}
+
+.panel {
+  --lg-radius: 28px;
+  --lg-blur: 26px;
+  --lg-saturate: 165%;
+  --lg-base-top: rgba(32, 34, 39, 0.58);
+  --lg-base-bottom: rgba(14, 15, 18, 0.46);
+  --lg-density-top: rgba(255, 255, 255, 0.11);
+  --lg-density-mid: rgba(255, 255, 255, 0.04);
+  --lg-density-bottom: rgba(255, 255, 255, 0.014);
+  --lg-border: rgba(255, 255, 255, 0.14);
+}
+
+.neutral {
+  --lg-base-top: rgba(34, 35, 40, 0.64);
+  --lg-base-bottom: rgba(14, 15, 18, 0.44);
+  --lg-density-top: rgba(255, 255, 255, 0.1);
+  --lg-density-mid: rgba(255, 255, 255, 0.04);
+  --lg-density-bottom: rgba(255, 255, 255, 0.016);
+  --lg-bottom-tint: rgba(255, 255, 255, 0.02);
+}
+
+.accent {
+  --lg-base-top: rgba(49, 18, 28, 0.68);
+  --lg-base-bottom: rgba(18, 11, 14, 0.46);
+  --lg-density-top: rgba(255, 255, 255, 0.12);
+  --lg-density-mid: rgba(255, 255, 255, 0.045);
+  --lg-density-bottom: rgba(255, 255, 255, 0.018);
+  --lg-bottom-tint: rgba(143, 23, 56, 0.13);
+  --lg-border: rgba(255, 255, 255, 0.18);
+}
+
+.interactive:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.03),
+    0 22px 56px rgba(0, 0, 0, 0.32),
+    0 6px 20px rgba(0, 0, 0, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.interactive:hover::after {
+  opacity: 0.82;
+}
+
+.interactive:hover .highlight {
+  opacity: 0.64;
+  transform: translateY(-3%);
+  filter: blur(0.35px);
+}
+
+.interactive:active {
+  transform: translateY(0) scale(0.985);
+}
+
+.interactive:active::after {
+  opacity: 0.64;
+}
+
+.interactive:active .highlight {
+  opacity: 0.38;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root,
+  .highlight {
+    transition: none;
+  }
+}

@@ -8,10 +8,10 @@
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: -3;
   background:
-    radial-gradient(circle at 50% 8%, rgba(143, 23, 56, 0.24), transparent 18%),
-    radial-gradient(circle at 50% 18%, rgba(143, 23, 56, 0.12), transparent 32%),
+    radial-gradient(circle at 50% 9%, rgba(122, 19, 48, 0.22), transparent 18%),
+    radial-gradient(circle at 50% 22%, rgba(122, 19, 48, 0.1), transparent 34%),
     #050505;
   pointer-events: none;
 }
@@ -20,13 +20,31 @@
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
   background-size: 88px 88px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.38));
-  opacity: 0.28;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.38));
+  opacity: 0.24;
+  pointer-events: none;
+}
+
+.pageGlow {
+  position: fixed;
+  top: 4%;
+  left: 50%;
+  z-index: -1;
+  width: min(780px, 72vw);
+  height: min(520px, 52vw);
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(143, 23, 56, 0.2), transparent 52%),
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.06), transparent 26%);
+  filter: blur(44px);
+  opacity: 0.8;
+  animation: ambientDrift 16s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -43,47 +61,21 @@
 .navbar {
   position: sticky;
   top: 14px;
-  z-index: 20;
+  z-index: 40;
   margin-top: 14px;
 }
 
-.glassNavbar {
-  position: relative;
-  display: block;
+.navShell {
   width: 100%;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
-    rgba(16, 16, 18, 0.74);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 18px 44px rgba(0, 0, 0, 0.34);
-  backdrop-filter: blur(28px) saturate(140%);
+  animation: riseIn 620ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-.glassNavbar::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 34%),
-    radial-gradient(circle at 15% 0%, rgba(255, 255, 255, 0.08), transparent 30%),
-    radial-gradient(circle at 85% 100%, rgba(143, 23, 56, 0.16), transparent 28%);
-  pointer-events: none;
-}
-
-.navbarInner {
+.navShellContent {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 16px 22px;
-  border-radius: 20px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
-    rgba(10, 10, 12, 0.5);
+  padding: 15px 20px;
 }
 
 .brand {
@@ -93,13 +85,13 @@
 }
 
 .brandText {
-  font-size: 1.05rem;
+  font-size: 1.06rem;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
 .brandText span {
-  color: #d14473;
+  color: #d44474;
 }
 
 .navLinks {
@@ -110,8 +102,8 @@
 
 .navLinks a {
   color: var(--text-secondary);
-  font-size: 0.96rem;
-  transition: color 180ms ease;
+  font-size: 0.95rem;
+  transition: color 160ms ease;
 }
 
 .navLinks a:hover {
@@ -125,83 +117,69 @@
   gap: 12px;
 }
 
-.glassPrimaryButton,
-.glassGhostButton,
-.glassEyebrow,
-.glassChip,
-.glassMetric,
-.glassCta {
-  display: inline-flex;
+.controlGlass,
+.eyebrowGlass,
+.signalGlass,
+.metricGlass,
+.ctaGlass,
+.consoleGlass {
+  animation: riseIn 680ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-.glassPrimaryButton,
-.glassGhostButton {
-  border-radius: 14px;
+.controlCompact {
+  min-width: 148px;
 }
 
-.glassPrimaryButton {
-  box-shadow: 0 14px 34px rgba(123, 18, 49, 0.28);
+.controlLarge {
+  min-width: 188px;
 }
 
-.glassPrimaryButton :global(.glass),
-.glassGhostButton :global(.glass),
-.glassEyebrow :global(.glass),
-.glassChip :global(.glass) {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)),
-    rgba(18, 18, 20, 0.26);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.03),
-    0 10px 24px rgba(0, 0, 0, 0.24);
+.controlAccent {
+  box-shadow: 0 16px 36px rgba(117, 18, 47, 0.24);
 }
 
-.glassPrimaryButton :global(.glass__warp),
-.glassGhostButton :global(.glass__warp),
-.glassEyebrow :global(.glass__warp),
-.glassChip :global(.glass__warp) {
-  opacity: 0.96;
+.controlContent {
+  min-height: 48px;
+  padding: 0 18px;
 }
 
-.glassEyebrow {
-  border-radius: 999px;
-}
-
-.glassChip {
-  border-radius: 999px;
-}
-
-.primaryButton,
-.ghostButton {
+.primaryControl,
+.ghostControl {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   min-height: 48px;
-  padding: 0 18px;
-  border-radius: 14px;
+  border-radius: 999px;
   font-size: 0.94rem;
   font-weight: 700;
-  transition:
-    transform 180ms ease,
-    color 180ms ease,
-    background 180ms ease;
+  letter-spacing: -0.01em;
 }
 
-.primaryButton {
-  min-width: 156px;
-  background: linear-gradient(180deg, rgba(188, 33, 81, 0.38), rgba(117, 18, 47, 0.42));
-  color: #fff8fb;
+.primaryControl {
+  color: rgba(255, 252, 253, 0.95);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
 }
 
-.ghostButton {
-  min-width: 148px;
-  background: rgba(255, 255, 255, 0.01);
-  color: var(--text-secondary);
+.ghostControl {
+  color: rgba(252, 252, 253, 0.78);
 }
 
-.ghostButton:hover {
-  color: var(--text-primary);
+.eyebrowGlass {
+  margin-bottom: 12px;
+}
+
+.eyebrowContent {
+  min-height: 42px;
+  padding: 0 18px;
+}
+
+.eyebrow {
+  color: rgba(252, 252, 253, 0.74);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .heroSection {
@@ -210,39 +188,21 @@
   align-items: center;
   padding-top: 108px;
   text-align: center;
-}
-
-.eyebrow,
-.sectionEyebrow,
-.cardEyebrow,
-.sidebarLabel {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: rgba(252, 252, 253, 0.56);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.eyebrow {
-  min-height: 38px;
-  padding: 0 16px;
-  background: rgba(143, 23, 56, 0.09);
+  animation: riseIn 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .heroTitle {
   max-width: 980px;
-  margin: 24px 0 0;
-  font-size: clamp(3.2rem, 7vw, 6.4rem);
+  margin: 0;
+  font-size: clamp(3.25rem, 7vw, 6.5rem);
   font-weight: 800;
   line-height: 0.98;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.065em;
+  text-wrap: balance;
 }
 
 .heroTitle span {
-  color: #d14473;
+  color: #d44474;
 }
 
 .heroDescription {
@@ -250,7 +210,7 @@
   margin: 24px 0 0;
   color: var(--text-secondary);
   font-size: 1.08rem;
-  line-height: 1.85;
+  line-height: 1.82;
 }
 
 .heroActions {
@@ -265,41 +225,37 @@
   margin-top: 28px;
 }
 
-.signalChip {
-  display: inline-flex;
-  align-items: center;
+.signalContent {
   min-height: 38px;
   padding: 0 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.015);
-  color: var(--text-secondary);
+}
+
+.signalChip {
+  color: rgba(252, 252, 253, 0.72);
   font-size: 0.9rem;
 }
 
 .consoleSection {
-  margin-top: 48px;
+  margin-top: 46px;
+  animation: riseIn 780ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-.glassConsole {
+.consoleGlass {
+  width: 100%;
+}
+
+.consoleGlassContent {
   display: block;
   width: 100%;
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
-    rgba(10, 10, 12, 0.78);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    var(--shadow);
-  backdrop-filter: blur(26px) saturate(130%);
 }
 
 .consoleShell {
   overflow: hidden;
+  width: 100%;
   border-radius: 28px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
-    rgba(9, 9, 11, 0.52);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0)),
+    rgba(8, 8, 10, 0.24);
 }
 
 .consoleTopbar {
@@ -321,19 +277,18 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
 }
 
 .consoleDots span:nth-child(1) {
-  background: rgba(209, 68, 115, 0.96);
+  background: #dc5a82;
 }
 
 .consoleDots span:nth-child(2) {
-  background: rgba(162, 36, 75, 0.76);
+  background: #9e2047;
 }
 
 .consoleDots span:nth-child(3) {
-  background: rgba(124, 21, 51, 0.62);
+  background: #601023;
 }
 
 .consoleUrl,
@@ -343,12 +298,12 @@
 }
 
 .consoleState {
-  color: #f3d6df;
+  color: rgba(252, 240, 245, 0.86);
 }
 
 .consoleBody {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.75fr);
+  grid-template-columns: minmax(0, 1.35fr) minmax(290px, 0.75fr);
   gap: 18px;
   padding: 22px;
 }
@@ -362,12 +317,22 @@
 .ctaPanel {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.01)),
-    rgba(12, 12, 14, 0.84);
-  backdrop-filter: blur(20px);
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.055) 0%,
+      rgba(255, 255, 255, 0.018) 34%,
+      rgba(255, 255, 255, 0.012) 100%
+    ),
+    linear-gradient(180deg, rgba(34, 35, 40, 0.48), rgba(13, 14, 17, 0.72));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.02),
+    0 18px 40px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
 }
 
 .consoleTable::before,
@@ -379,14 +344,49 @@
 .ctaPanel::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 1px;
+  border-radius: inherit;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 18%),
-    linear-gradient(135deg, rgba(143, 23, 56, 0.1), transparent 36%);
+    radial-gradient(
+      100% 82% at 50% 0%,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.05) 28%,
+      transparent 64%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.02) 36%,
+      rgba(143, 23, 56, 0.05) 100%
+    );
   pointer-events: none;
 }
 
-.consoleTable {
+.consoleTable::after,
+.sidebarCard::after,
+.highlightCard::after,
+.useCaseCard::after,
+.stepCard::after,
+.architectureCard::after,
+.ctaPanel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      112deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.06) 14%,
+      rgba(255, 255, 255, 0.015) 30%,
+      transparent 46%
+    );
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.consoleTable,
+.sidebarCard {
   padding: 20px;
 }
 
@@ -432,13 +432,13 @@
 }
 
 .statusSuccess {
-  background: rgba(209, 68, 115, 0.16);
-  color: #f2d1db;
+  background: rgba(143, 23, 56, 0.18);
+  color: #f6d8e2;
 }
 
 .statusWarning {
-  background: rgba(161, 63, 90, 0.16);
-  color: #f5c6d4;
+  background: rgba(122, 42, 68, 0.16);
+  color: #f3cad8;
 }
 
 .statusNeutral {
@@ -452,15 +452,24 @@
   gap: 16px;
 }
 
-.sidebarCard {
-  padding: 18px;
+.sidebarLabel,
+.sectionEyebrow,
+.cardEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(252, 252, 253, 0.56);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .sidebarCard strong {
   display: block;
   margin-top: 12px;
   font-size: 1.02rem;
-  line-height: 1.4;
+  line-height: 1.38;
 }
 
 .sidebarCard p {
@@ -497,8 +506,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #c32756;
-  box-shadow: 0 0 14px rgba(195, 39, 86, 0.38);
+  background: #cf456f;
+  box-shadow: 0 0 14px rgba(207, 69, 111, 0.3);
 }
 
 .progressBlock {
@@ -517,7 +526,7 @@
   width: 72%;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #75122f, #c32756);
+  background: linear-gradient(90deg, #75122f, #cf456f);
 }
 
 .progressMeta {
@@ -534,24 +543,21 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   margin-top: 20px;
+  animation: riseIn 840ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-.glassMetric {
-  display: block;
+.metricGlass {
   width: 100%;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
-    rgba(10, 10, 12, 0.7);
-  backdrop-filter: blur(18px) saturate(125%);
+}
+
+.metricGlassContent {
+  width: 100%;
 }
 
 .metricCard {
+  width: 100%;
   min-height: 100%;
   padding: 22px 18px;
-  border-radius: 18px;
-  background: rgba(10, 10, 12, 0.28);
   text-align: center;
 }
 
@@ -582,10 +588,11 @@
 .architectureCopy h2,
 .ctaPanel h2 {
   margin: 16px 0 0;
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
   font-weight: 800;
   line-height: 1.02;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
 }
 
 .sectionHeading p,
@@ -593,7 +600,7 @@
 .ctaPanel p {
   margin: 18px 0 0;
   color: var(--text-secondary);
-  line-height: 1.85;
+  line-height: 1.82;
 }
 
 .highlightGrid,
@@ -664,13 +671,13 @@
   width: 56px;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(195, 39, 86, 0.18), rgba(195, 39, 86, 0.9));
+  background: linear-gradient(90deg, rgba(207, 69, 111, 0.12), rgba(207, 69, 111, 0.9));
 }
 
 .stepCard strong {
   display: block;
   margin-top: 18px;
-  color: #f2d1db;
+  color: rgba(252, 234, 241, 0.9);
   font-size: 0.95rem;
 }
 
@@ -694,20 +701,41 @@
   margin-top: 112px;
 }
 
-.glassCta {
+.ctaGlass {
+  width: 100%;
+}
+
+.ctaGlassContent {
   display: block;
   width: 100%;
-  border-radius: 26px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
-    rgba(10, 10, 12, 0.76);
-  backdrop-filter: blur(24px) saturate(128%);
 }
 
 .ctaPanel {
   padding: 34px;
   text-align: center;
+}
+
+@keyframes ambientDrift {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-48%) translateY(14px);
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 1120px) {
@@ -726,7 +754,7 @@
 }
 
 @media (max-width: 860px) {
-  .navbarInner {
+  .navShellContent {
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -743,7 +771,7 @@
   }
 
   .heroSection {
-    padding-top: 82px;
+    padding-top: 84px;
   }
 
   .heroActions {
@@ -753,11 +781,6 @@
 
   .heroActions > *,
   .navActions > * {
-    width: 100%;
-  }
-
-  .heroActions a,
-  .navActions a {
     width: 100%;
   }
 
@@ -785,12 +808,12 @@
     top: 10px;
   }
 
-  .navbarInner {
+  .navShellContent {
     padding: 14px;
   }
 
   .heroTitle {
-    font-size: clamp(2.5rem, 12vw, 4rem);
+    font-size: clamp(2.6rem, 12vw, 4.2rem);
   }
 
   .heroDescription {
@@ -799,6 +822,7 @@
 
   .consoleBody,
   .consoleTable,
+  .sidebarCard,
   .highlightCard,
   .useCaseCard,
   .stepCard,
@@ -808,6 +832,6 @@
   }
 
   .section {
-    margin-top: 86px;
+    margin-top: 88px;
   }
 }

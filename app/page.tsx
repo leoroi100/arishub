@@ -1,5 +1,5 @@
 import { BrandMark } from "@/components/brand-mark";
-import { GlassSurface } from "@/components/glass-surface";
+import { LiquidGlass } from "@/components/liquid-glass";
 import {
   capabilityMetrics,
   heroSignals,
@@ -21,45 +21,65 @@ const statusClassMap = {
 export default function Home() {
   return (
     <main className={styles.page}>
+      <div aria-hidden="true" className={styles.pageGlow} />
+
       <header className={styles.navbar}>
-        <div className={styles.glassNavbar}>
-          <div className={styles.navbarInner}>
-            <a className={styles.brand} href="#top">
-              <BrandMark />
-              <span className={styles.brandText}>
-                Aris<span>Hub</span>
-              </span>
-            </a>
+        <LiquidGlass
+          className={styles.navShell}
+          contentClassName={styles.navShellContent}
+          variant="panel"
+        >
+          <a className={styles.brand} href="#top">
+            <BrandMark />
+            <span className={styles.brandText}>
+              Aris<span>Hub</span>
+            </span>
+          </a>
 
-            <nav className={styles.navLinks} aria-label="Navegacao principal">
-              {navItems.map((item) => (
-                <a key={item.href} href={item.href}>
-                  {item.label}
-                </a>
-              ))}
-            </nav>
+          <nav className={styles.navLinks} aria-label="Navegacao principal">
+            {navItems.map((item) => (
+              <a key={item.href} href={item.href}>
+                {item.label}
+              </a>
+            ))}
+          </nav>
 
-            <div className={styles.navActions}>
-              <GlassSurface className={styles.glassGhostButton} variant="button">
-                <a className={styles.ghostButton} href="#arquitetura">
-                  Ver estrutura
-                </a>
-              </GlassSurface>
+          <div className={styles.navActions}>
+            <LiquidGlass
+              className={`${styles.controlGlass} ${styles.controlCompact}`}
+              contentClassName={styles.controlContent}
+              interactive
+              variant="pill"
+            >
+              <a className={styles.ghostControl} href="#arquitetura">
+                Ver estrutura
+              </a>
+            </LiquidGlass>
 
-              <GlassSurface className={styles.glassPrimaryButton} variant="button">
-                <a className={styles.primaryButton} href="#recursos">
-                  Ver recursos
-                </a>
-              </GlassSurface>
-            </div>
+            <LiquidGlass
+              className={`${styles.controlGlass} ${styles.controlCompact} ${styles.controlAccent}`}
+              contentClassName={styles.controlContent}
+              interactive
+              tone="accent"
+              variant="pill"
+            >
+              <a className={styles.primaryControl} href="#recursos">
+                Ver recursos
+              </a>
+            </LiquidGlass>
           </div>
-        </div>
+        </LiquidGlass>
       </header>
 
       <section className={styles.heroSection} id="top">
-        <GlassSurface className={styles.glassEyebrow} variant="pill">
+        <LiquidGlass
+          className={`${styles.eyebrowGlass} ${styles.controlAccent}`}
+          contentClassName={styles.eyebrowContent}
+          tone="accent"
+          variant="pill"
+        >
           <span className={styles.eyebrow}>Plataforma premium para TikTok Ads</span>
-        </GlassSurface>
+        </LiquidGlass>
 
         <h1 className={styles.heroTitle} id="visao-geral">
           Controle <span>Business Centers</span>, advertisers e campanhas em
@@ -72,30 +92,50 @@ export default function Home() {
         </p>
 
         <div className={styles.heroActions}>
-          <GlassSurface className={styles.glassPrimaryButton} variant="button">
-            <a className={styles.primaryButton} href="#integracao">
+          <LiquidGlass
+            className={`${styles.controlGlass} ${styles.controlLarge} ${styles.controlAccent}`}
+            contentClassName={styles.controlContent}
+            interactive
+            tone="accent"
+            variant="pill"
+          >
+            <a className={styles.primaryControl} href="#integracao">
               Comecar pela base
             </a>
-          </GlassSurface>
+          </LiquidGlass>
 
-          <GlassSurface className={styles.glassGhostButton} variant="button">
-            <a className={styles.ghostButton} href="#casos">
+          <LiquidGlass
+            className={`${styles.controlGlass} ${styles.controlLarge}`}
+            contentClassName={styles.controlContent}
+            interactive
+            variant="pill"
+          >
+            <a className={styles.ghostControl} href="#casos">
               Ver casos de uso
             </a>
-          </GlassSurface>
+          </LiquidGlass>
         </div>
 
         <div className={styles.signalRow}>
           {heroSignals.map((signal) => (
-            <GlassSurface className={styles.glassChip} key={signal} variant="pill">
+            <LiquidGlass
+              className={styles.signalGlass}
+              contentClassName={styles.signalContent}
+              key={signal}
+              variant="pill"
+            >
               <span className={styles.signalChip}>{signal}</span>
-            </GlassSurface>
+            </LiquidGlass>
           ))}
         </div>
       </section>
 
       <section className={styles.consoleSection}>
-        <div className={styles.glassConsole}>
+        <LiquidGlass
+          className={styles.consoleGlass}
+          contentClassName={styles.consoleGlassContent}
+          variant="panel"
+        >
           <div className={styles.consoleShell}>
             <div className={styles.consoleTopbar}>
               <div className={styles.consoleDots}>
@@ -161,17 +201,22 @@ export default function Home() {
               </aside>
             </div>
           </div>
-        </div>
+        </LiquidGlass>
       </section>
 
       <section className={styles.metricsBar}>
         {capabilityMetrics.map((metric) => (
-          <div className={styles.glassMetric} key={metric.value}>
+          <LiquidGlass
+            className={styles.metricGlass}
+            contentClassName={styles.metricGlassContent}
+            key={metric.value}
+            variant="panel"
+          >
             <article className={styles.metricCard}>
               <strong>{metric.value}</strong>
               <span>{metric.label}</span>
             </article>
-          </div>
+          </LiquidGlass>
         ))}
       </section>
 
@@ -261,17 +306,30 @@ export default function Home() {
               ficar presa neles. O desenho atual ja esta orientado a adapters,
               dominio proprio e evolucao por etapas.
             </p>
+
             <div className={styles.heroActions}>
-              <GlassSurface className={styles.glassPrimaryButton} variant="button">
-                <a className={styles.primaryButton} href="#top">
+              <LiquidGlass
+                className={`${styles.controlGlass} ${styles.controlLarge} ${styles.controlAccent}`}
+                contentClassName={styles.controlContent}
+                interactive
+                tone="accent"
+                variant="pill"
+              >
+                <a className={styles.primaryControl} href="#top">
                   Voltar ao topo
                 </a>
-              </GlassSurface>
-              <GlassSurface className={styles.glassGhostButton} variant="button">
-                <a className={styles.ghostButton} href="#recursos">
+              </LiquidGlass>
+
+              <LiquidGlass
+                className={`${styles.controlGlass} ${styles.controlLarge}`}
+                contentClassName={styles.controlContent}
+                interactive
+                variant="pill"
+              >
+                <a className={styles.ghostControl} href="#recursos">
                   Revisar modulos
                 </a>
-              </GlassSurface>
+              </LiquidGlass>
             </div>
           </div>
 
@@ -287,7 +345,11 @@ export default function Home() {
       </section>
 
       <section className={styles.ctaSection}>
-        <div className={styles.glassCta}>
+        <LiquidGlass
+          className={styles.ctaGlass}
+          contentClassName={styles.ctaGlassContent}
+          variant="panel"
+        >
           <div className={styles.ctaPanel}>
             <span className={styles.sectionEyebrow}>ArisHub</span>
             <h2>A base agora esta mais proxima do nivel premium que esse produto precisa.</h2>
@@ -296,7 +358,7 @@ export default function Home() {
               auth, dashboard de BCs, advertisers, pixels e bulk launch.
             </p>
           </div>
-        </div>
+        </LiquidGlass>
       </section>
     </main>
   );
