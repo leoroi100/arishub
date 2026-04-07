@@ -1,18 +1,18 @@
 .root {
   --lg-radius: 999px;
-  --lg-blur: 24px;
-  --lg-saturate: 160%;
-  --lg-base-top: rgba(34, 35, 40, 0.64);
-  --lg-base-bottom: rgba(14, 15, 18, 0.44);
-  --lg-density-top: rgba(255, 255, 255, 0.1);
-  --lg-density-mid: rgba(255, 255, 255, 0.04);
-  --lg-density-bottom: rgba(255, 255, 255, 0.016);
-  --lg-border: rgba(255, 255, 255, 0.16);
-  --lg-inner-border: rgba(255, 255, 255, 0.12);
-  --lg-bottom-tint: rgba(255, 255, 255, 0.02);
-  --lg-shadow-deep: rgba(0, 0, 0, 0.3);
-  --lg-shadow-soft: rgba(0, 0, 0, 0.2);
-  --lg-highlight-opacity: 0.52;
+  --lg-blur: 28px;
+  --lg-saturate: 170%;
+  --lg-base-top: rgba(66, 52, 60, 0.36);
+  --lg-base-bottom: rgba(15, 14, 18, 0.18);
+  --lg-density-top: rgba(255, 255, 255, 0.18);
+  --lg-density-mid: rgba(255, 255, 255, 0.065);
+  --lg-density-bottom: rgba(255, 255, 255, 0.02);
+  --lg-border: rgba(255, 255, 255, 0.14);
+  --lg-inner-border: rgba(255, 255, 255, 0.16);
+  --lg-bottom-tint: rgba(255, 255, 255, 0.015);
+  --lg-shadow-deep: rgba(0, 0, 0, 0.26);
+  --lg-shadow-soft: rgba(0, 0, 0, 0.14);
+  --lg-highlight-opacity: 0.68;
   position: relative;
   display: block;
   width: fit-content;
@@ -20,19 +20,25 @@
   isolation: isolate;
   border-radius: var(--lg-radius);
   background:
+    radial-gradient(
+      140% 120% at 50% -24%,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.035) 34%,
+      transparent 62%
+    ),
     linear-gradient(
       180deg,
       var(--lg-density-top) 0%,
-      var(--lg-density-mid) 40%,
+      var(--lg-density-mid) 38%,
       var(--lg-density-bottom) 100%
     ),
     linear-gradient(180deg, var(--lg-base-top) 0%, var(--lg-base-bottom) 100%);
   border: 1px solid var(--lg-border);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.14),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.03),
-    0 18px 52px var(--lg-shadow-deep),
-    0 6px 18px var(--lg-shadow-soft),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.026),
+    0 20px 54px var(--lg-shadow-deep),
+    0 6px 20px var(--lg-shadow-soft),
     0 1px 0 rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
   -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
@@ -50,20 +56,20 @@
   border-radius: inherit;
   background:
     radial-gradient(
-      120% 88% at 50% 0%,
-      rgba(255, 255, 255, 0.16) 0%,
-      rgba(255, 255, 255, 0.07) 28%,
-      transparent 60%
+      120% 90% at 50% -8%,
+      rgba(255, 255, 255, 0.22) 0%,
+      rgba(255, 255, 255, 0.09) 24%,
+      transparent 58%
     ),
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.09) 0%,
-      rgba(255, 255, 255, 0.03) 34%,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.04) 32%,
       var(--lg-bottom-tint) 100%
     );
   box-shadow:
     inset 0 1px 0 var(--lg-inner-border),
-    inset 0 -14px 18px rgba(255, 255, 255, 0.01);
+    inset 0 -16px 20px rgba(255, 255, 255, 0.01);
   pointer-events: none;
 }
 
@@ -75,33 +81,33 @@
   background:
     linear-gradient(
       112deg,
-      rgba(255, 255, 255, 0.16) 0%,
-      rgba(255, 255, 255, 0.07) 14%,
-      rgba(255, 255, 255, 0.018) 28%,
-      transparent 44%
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.09) 12%,
+      rgba(255, 255, 255, 0.024) 26%,
+      transparent 42%
     ),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 20%);
-  opacity: 0.72;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 18%);
+  opacity: 0.76;
   pointer-events: none;
 }
 
 .highlight {
   position: absolute;
-  inset: -34% 8% 44%;
+  inset: -38% 8% 42%;
   border-radius: inherit;
   background:
     linear-gradient(
-      105deg,
+      104deg,
       transparent 0%,
-      rgba(255, 255, 255, 0.04) 18%,
-      rgba(255, 255, 255, 0.18) 46%,
-      rgba(255, 255, 255, 0.06) 72%,
+      rgba(255, 255, 255, 0.05) 16%,
+      rgba(255, 255, 255, 0.24) 46%,
+      rgba(255, 255, 255, 0.08) 70%,
       transparent 100%
     ),
     radial-gradient(
-      82% 92% at 50% 0%,
-      rgba(255, 255, 255, 0.26),
-      transparent 62%
+      82% 92% at 50% -4%,
+      rgba(255, 255, 255, 0.32),
+      transparent 60%
     );
   mix-blend-mode: screen;
   opacity: var(--lg-highlight-opacity);
@@ -125,39 +131,39 @@
 
 .pill {
   --lg-radius: 999px;
-  --lg-blur: 22px;
-  --lg-saturate: 155%;
+  --lg-blur: 24px;
+  --lg-saturate: 168%;
 }
 
 .panel {
   --lg-radius: 28px;
-  --lg-blur: 26px;
-  --lg-saturate: 165%;
-  --lg-base-top: rgba(32, 34, 39, 0.58);
-  --lg-base-bottom: rgba(14, 15, 18, 0.46);
-  --lg-density-top: rgba(255, 255, 255, 0.11);
-  --lg-density-mid: rgba(255, 255, 255, 0.04);
-  --lg-density-bottom: rgba(255, 255, 255, 0.014);
-  --lg-border: rgba(255, 255, 255, 0.14);
+  --lg-blur: 30px;
+  --lg-saturate: 176%;
+  --lg-base-top: rgba(53, 39, 45, 0.38);
+  --lg-base-bottom: rgba(14, 15, 18, 0.2);
+  --lg-density-top: rgba(255, 255, 255, 0.16);
+  --lg-density-mid: rgba(255, 255, 255, 0.058);
+  --lg-density-bottom: rgba(255, 255, 255, 0.018);
+  --lg-border: rgba(255, 255, 255, 0.13);
 }
 
 .neutral {
-  --lg-base-top: rgba(34, 35, 40, 0.64);
-  --lg-base-bottom: rgba(14, 15, 18, 0.44);
-  --lg-density-top: rgba(255, 255, 255, 0.1);
-  --lg-density-mid: rgba(255, 255, 255, 0.04);
-  --lg-density-bottom: rgba(255, 255, 255, 0.016);
-  --lg-bottom-tint: rgba(255, 255, 255, 0.02);
+  --lg-base-top: rgba(58, 45, 50, 0.34);
+  --lg-base-bottom: rgba(15, 14, 18, 0.18);
+  --lg-density-top: rgba(255, 255, 255, 0.18);
+  --lg-density-mid: rgba(255, 255, 255, 0.062);
+  --lg-density-bottom: rgba(255, 255, 255, 0.018);
+  --lg-bottom-tint: rgba(255, 255, 255, 0.012);
 }
 
 .accent {
-  --lg-base-top: rgba(49, 18, 28, 0.68);
-  --lg-base-bottom: rgba(18, 11, 14, 0.46);
-  --lg-density-top: rgba(255, 255, 255, 0.12);
-  --lg-density-mid: rgba(255, 255, 255, 0.045);
-  --lg-density-bottom: rgba(255, 255, 255, 0.018);
-  --lg-bottom-tint: rgba(143, 23, 56, 0.13);
-  --lg-border: rgba(255, 255, 255, 0.18);
+  --lg-base-top: rgba(84, 24, 44, 0.4);
+  --lg-base-bottom: rgba(26, 12, 18, 0.2);
+  --lg-density-top: rgba(255, 255, 255, 0.18);
+  --lg-density-mid: rgba(255, 255, 255, 0.066);
+  --lg-density-bottom: rgba(255, 255, 255, 0.02);
+  --lg-bottom-tint: rgba(143, 23, 56, 0.09);
+  --lg-border: rgba(255, 255, 255, 0.16);
 }
 
 .interactive:hover {

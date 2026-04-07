@@ -59,15 +59,17 @@
 }
 
 .navbar {
-  position: sticky;
-  top: 14px;
+  position: fixed;
+  top: 18px;
+  left: 50%;
   z-index: 40;
-  margin-top: 14px;
+  margin-top: 0;
+  transform: translateX(-50%);
+  animation: navFloatIn 680ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .navShell {
   width: 100%;
-  animation: riseIn 620ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .navShellContent {
@@ -186,7 +188,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 108px;
+  padding-top: 148px;
   text-align: center;
   animation: riseIn 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
@@ -738,6 +740,18 @@
   }
 }
 
+@keyframes navFloatIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 @media (max-width: 1120px) {
   .consoleBody,
   .architecturePanel,
@@ -771,7 +785,7 @@
   }
 
   .heroSection {
-    padding-top: 84px;
+    padding-top: 188px;
   }
 
   .heroActions {
@@ -814,6 +828,10 @@
 
   .heroTitle {
     font-size: clamp(2.6rem, 12vw, 4.2rem);
+  }
+
+  .heroSection {
+    padding-top: 204px;
   }
 
   .heroDescription {
