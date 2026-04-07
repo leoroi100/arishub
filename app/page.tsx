@@ -25,15 +25,16 @@ export default function Home() {
       <div aria-hidden="true" className={styles.pageEther}>
         <LiquidEther
           autoDemo
-          autoIntensity={2.2}
+          autoIntensity={3.4}
           autoSpeed={0.5}
+          captureAllPointer
           colors={["#12070c", "#6f1634", "#d44474"]}
-          cursorSize={100}
+          cursorSize={170}
           isBounce={false}
           isViscous
           iterationsPoisson={32}
           iterationsViscous={32}
-          mouseForce={20}
+          mouseForce={42}
           pauseOnHover={false}
           resolution={0.5}
           viscous={30}
