@@ -1,246 +1,275 @@
 import { BrandMark } from "@/components/brand-mark";
-import { FeatureCard } from "@/components/feature-card";
-import { GlassPill } from "@/components/glass-pill";
 import {
-  architectureLayers,
-  controlSignals,
-  launchSequence,
-  platformModules,
-  portabilityRules,
+  capabilityMetrics,
+  heroSignals,
+  heroTableRows,
+  navItems,
+  platformHighlights,
+  portabilityPoints,
+  setupSteps,
+  useCases,
 } from "@/lib/site-data";
 import styles from "./page.module.css";
+
+const statusClassMap = {
+  success: styles.statusSuccess,
+  warning: styles.statusWarning,
+  neutral: styles.statusNeutral,
+} as const;
 
 export default function Home() {
   return (
     <main className={styles.page}>
-      <div className={styles.ambientHalo} />
+      <header className={styles.navbar}>
+        <a className={styles.brand} href="#top">
+          <BrandMark />
+          <span className={styles.brandText}>
+            Aris<span>Hub</span>
+          </span>
+        </a>
 
-      <section className={styles.chrome} id="top">
-        <header className={styles.nav}>
-          <a className={styles.brand} href="#top">
-            <BrandMark />
-            <span className={styles.brandText}>ArisHub</span>
+        <nav className={styles.navLinks} aria-label="Navegação principal">
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className={styles.navActions}>
+          <a className={styles.ghostButton} href="#arquitetura">
+            Ver estrutura
           </a>
-
-          <nav className={styles.navLinks} aria-label="Navegacao principal">
-            <a href="#modulos">Modulos</a>
-            <a href="#arquitetura">Arquitetura</a>
-            <a href="#escala">Escala</a>
-          </nav>
-
-          <a className={styles.navAction} href="#arquitetura">
-            Ver base
+          <a className={styles.primaryButton} href="#recursos">
+            Ver recursos
           </a>
-        </header>
+        </div>
+      </header>
 
-        <div className={styles.hero}>
-          <div className={styles.heroCopy}>
-            <GlassPill>Control Tower para TikTok Ads em escala</GlassPill>
+      <section className={styles.heroSection} id="top">
+        <span className={styles.eyebrow}>Plataforma premium para TikTok Ads</span>
+        <h1 className={styles.heroTitle} id="visao-geral">
+          Controle <span>Business Centers</span>, advertisers e campanhas em
+          massa sem perder precisão.
+        </h1>
+        <p className={styles.heroDescription}>
+          A ArisHub nasce para centralizar Multi-BC, OAuth 2.0, vault de tokens,
+          pixels, criativos e lançamentos simultâneos numa operação realmente
+          organizada.
+        </p>
 
-            <h1 className={styles.heroTitle}>
-              Opera <span>BCs</span>, advertisers, pixels e lancamentos em massa
-              numa camada premium.
-            </h1>
+        <div className={styles.heroActions}>
+          <a className={styles.primaryButton} href="#integracao">
+            Começar pela base
+          </a>
+          <a className={styles.ghostButton} href="#casos">
+            Ver casos de uso
+          </a>
+        </div>
 
-            <p className={styles.heroLead}>
-              A base da ArisHub nasce para organizar Multi-BC, vault de tokens,
-              criativos, pixels e bulk launch sem prender o produto a um unico
-              provedor de infra.
-            </p>
+        <div className={styles.signalRow}>
+          {heroSignals.map((signal) => (
+            <span className={styles.signalChip} key={signal}>
+              {signal}
+            </span>
+          ))}
+        </div>
+      </section>
 
-            <div className={styles.heroActions}>
-              <a className={styles.primaryAction} href="#modulos">
-                Explorar modulos
-              </a>
-              <a className={styles.secondaryAction} href="#arquitetura">
-                Ver arquitetura portavel
-              </a>
+      <section className={styles.consoleSection}>
+        <div className={styles.consoleShell}>
+          <div className={styles.consoleTopbar}>
+            <div className={styles.consoleDots}>
+              <span />
+              <span />
+              <span />
             </div>
-
-            <div className={styles.signalGrid}>
-              {controlSignals.map((signal) => (
-                <article className={styles.signalCard} key={signal.label}>
-                  <span>{signal.label}</span>
-                  <strong>{signal.value}</strong>
-                </article>
-              ))}
-            </div>
+            <span className={styles.consoleUrl}>launch.arishub.app</span>
+            <span className={styles.consoleState}>Operação ao vivo</span>
           </div>
 
-          <div className={styles.heroPanel} aria-hidden="true">
-            <div className={styles.heroPanelTop}>
-              <div className={styles.panelTag}>ArisHub Core</div>
-              <div className={styles.panelStatus}>
-                <span className={styles.panelStatusDot} />
-                Sync operacional ativo
+          <div className={styles.consoleBody}>
+            <div className={styles.consoleTable}>
+              <div className={styles.tableHeader}>
+                <span>Campanha</span>
+                <span>Business Center</span>
+                <span>Status</span>
               </div>
+
+              {heroTableRows.map((row) => (
+                <div className={styles.tableRow} key={row.name}>
+                  <strong>{row.name}</strong>
+                  <span>{row.bc}</span>
+                  <span
+                    className={`${styles.statusPill} ${
+                      statusClassMap[row.statusTone as keyof typeof statusClassMap]
+                    }`}
+                  >
+                    {row.status}
+                  </span>
+                </div>
+              ))}
             </div>
 
-            <div className={styles.panelSplit}>
-              <section className={styles.commandDeck}>
-                <header className={styles.sectionLabel}>Bulk Launch Engine</header>
-                <div className={styles.commandCard}>
-                  <div>
-                    <span className={styles.commandLabel}>Launch blueprint</span>
-                    <strong>Creative Burst / Q2 Main Offer</strong>
-                  </div>
-                  <span className={styles.commandMeta}>48 advertisers</span>
-                </div>
-                <div className={styles.commandRows}>
-                  {launchSequence.map((step) => (
-                    <div className={styles.commandRow} key={step.title}>
-                      <div className={styles.commandPulse} />
-                      <div>
-                        <strong>{step.title}</strong>
-                        <span>{step.description}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
+            <aside className={styles.consoleSidebar}>
+              <div className={styles.sidebarCard}>
+                <span className={styles.sidebarLabel}>Blueprint ativo</span>
+                <strong>Offer Drop / Full Multi-BC</strong>
+                <p>48 advertisers, 12 BCs e 1 lógica de lançamento.</p>
+              </div>
 
-              <section className={styles.assetPanel}>
-                <header className={styles.sectionLabel}>Asset Control</header>
-                <div className={styles.assetList}>
-                  <div className={styles.assetItem}>
-                    <span>Pixels vinculados</span>
-                    <strong>94 assets sincronizados</strong>
+              <div className={styles.sidebarCard}>
+                <span className={styles.sidebarLabel}>Controle central</span>
+                <ul className={styles.sidebarList}>
+                  <li>OAuth 2.0 isolado por advertiser</li>
+                  <li>Token vault criptografado</li>
+                  <li>Pixel manager integrado ao launch</li>
+                </ul>
+              </div>
+
+              <div className={styles.sidebarCard}>
+                <span className={styles.sidebarLabel}>Execução</span>
+                <div className={styles.progressBlock}>
+                  <div className={styles.progressTrack}>
+                    <div className={styles.progressBar} />
                   </div>
-                  <div className={styles.assetItem}>
-                    <span>Creative review watch</span>
-                    <strong>7 itens em observacao</strong>
-                  </div>
-                  <div className={styles.assetItem}>
-                    <span>Token vault</span>
-                    <strong>Rotacao e refresh isolados</strong>
+                  <div className={styles.progressMeta}>
+                    <span>72% distribuído</span>
+                    <span>13 contas restantes</span>
                   </div>
                 </div>
-              </section>
-            </div>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
 
-      <section className={styles.metricsStrip}>
-        {architectureLayers.map((layer) => (
-          <article className={styles.metricCard} key={layer.title}>
-            <span>{layer.kicker}</span>
-            <strong>{layer.title}</strong>
-            <p>{layer.description}</p>
+      <section className={styles.metricsBar}>
+        {capabilityMetrics.map((metric) => (
+          <article className={styles.metricCard} key={metric.value}>
+            <strong>{metric.value}</strong>
+            <span>{metric.label}</span>
           </article>
         ))}
       </section>
 
-      <section className={styles.section} id="modulos">
-        <div className={styles.sectionHeader}>
-          <GlassPill>Modulo por modulo</GlassPill>
-          <h2>O nucleo da ArisHub ja nasce pensado para escalar operacao.</h2>
+      <section className={styles.section} id="recursos">
+        <div className={styles.sectionHeading}>
+          <span className={styles.sectionEyebrow}>Recursos</span>
+          <h2>Recursos que seguram a operação quando o volume sobe.</h2>
           <p>
-            O produto vai crescer em cima de dominio claro, automacao e
-            rastreabilidade. Infra barata no inicio, regra de negocio protegida
-            desde o primeiro commit.
+            A proposta aqui é simples: menos improviso, mais controle. Cada
+            módulo precisa servir a escala real da operação no TikTok Ads.
           </p>
         </div>
 
-        <div className={styles.featureGrid}>
-          {platformModules.map((module) => (
-            <FeatureCard key={module.title} {...module} />
+        <div className={styles.highlightGrid}>
+          {platformHighlights.map((item) => (
+            <article className={styles.highlightCard} key={item.title}>
+              <span className={styles.cardEyebrow}>{item.eyebrow}</span>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <ul>
+                {item.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.section} id="casos">
+        <div className={styles.sectionHeading}>
+          <span className={styles.sectionEyebrow}>Casos de uso</span>
+          <h2>Estrutura pensada para quem vive de performance.</h2>
+          <p>
+            A ArisHub não é só uma vitrine de API. Ela precisa servir time de
+            mídia, operação e escala com clareza.
+          </p>
+        </div>
+
+        <div className={styles.useCaseGrid}>
+          {useCases.map((item) => (
+            <article className={styles.useCaseCard} key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <ul>
+                {item.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.section} id="integracao">
+        <div className={styles.sectionHeading}>
+          <span className={styles.sectionEyebrow}>Integração</span>
+          <h2>Base pronta para conectar, organizar e lançar.</h2>
+          <p>
+            O fluxo da home já espelha a lógica do produto: conectar ativos,
+            organizar estrutura e escalar a publicação.
+          </p>
+        </div>
+
+        <div className={styles.stepsGrid}>
+          {setupSteps.map((item) => (
+            <article className={styles.stepCard} key={item.step}>
+              <div className={styles.stepTop}>
+                <span className={styles.stepNumber}>{item.step}</span>
+                <span className={styles.stepLine} />
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <strong>{item.detail}</strong>
+            </article>
           ))}
         </div>
       </section>
 
       <section className={styles.section} id="arquitetura">
-        <div className={styles.sectionHeader}>
-          <GlassPill>Arquitetura portavel</GlassPill>
-          <h2>Vercel e Supabase entram como fase inicial, nao como prisao.</h2>
-          <p>
-            A ideia aqui e simples: usar o melhor do plano gratis agora, sem
-            enterrar a ArisHub num desenho que te force a reescrever tudo quando
-            o volume apertar.
-          </p>
-        </div>
-
         <div className={styles.architecturePanel}>
+          <div className={styles.architectureCopy}>
+            <span className={styles.sectionEyebrow}>Arquitetura</span>
+            <h2>Infra barata agora, produto preparado para crescer depois.</h2>
+            <p>
+              Vercel e Supabase entram como ponto de partida. A ArisHub não vai
+              ficar presa neles. O desenho atual já está orientado a adapters,
+              domínio próprio e evolução por etapas.
+            </p>
+            <div className={styles.heroActions}>
+              <a className={styles.primaryButton} href="#top">
+                Voltar ao topo
+              </a>
+              <a className={styles.ghostButton} href="#recursos">
+                Revisar módulos
+              </a>
+            </div>
+          </div>
+
           <div className={styles.architectureGrid}>
-            {portabilityRules.map((rule) => (
-              <article className={styles.architectureCard} key={rule.title}>
-                <span>{rule.kicker}</span>
-                <strong>{rule.title}</strong>
-                <p>{rule.description}</p>
+            {portabilityPoints.map((item) => (
+              <article className={styles.architectureCard} key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
               </article>
             ))}
           </div>
-
-          <div className={styles.commandRail}>
-            <div className={styles.railCard}>
-              <span className={styles.railLabel}>Agora</span>
-              <strong>Next.js + TypeScript + banco gratuito</strong>
-              <p>
-                Entrega rapida, auth simples, storage e deploy sem custo alto.
-              </p>
-            </div>
-            <div className={styles.railCard}>
-              <span className={styles.railLabel}>Depois</span>
-              <strong>Swap de adapters sem quebrar dominio</strong>
-              <p>
-                Filas, workers dedicados, novo banco ou novo host entram sem
-                redefinir os modulos da plataforma.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
-      <section className={styles.section} id="escala">
-        <div className={styles.sectionHeader}>
-          <GlassPill>Escala guiada</GlassPill>
-          <h2>A jornada de implementacao ja esta pronta para a v1.</h2>
+      <section className={styles.ctaSection}>
+        <div className={styles.ctaPanel}>
+          <span className={styles.sectionEyebrow}>ArisHub</span>
+          <h2>A base agora está mais próxima do nível premium que esse produto precisa.</h2>
           <p>
-            A tela inicial resolve a presenca premium. A estrutura de codigo ja
-            abre caminho para o painel, o vault e a orquestracao de campanha.
+            O próximo passo é transformar essa home em fluxo real de produto:
+            auth, dashboard de BCs, advertisers, pixels e bulk launch.
           </p>
-        </div>
-
-        <div className={styles.timeline}>
-          <article className={styles.timelineCard}>
-            <span>Fase 01</span>
-            <strong>Foundation</strong>
-            <p>
-              Branding premium, layout responsivo, separacao de dominio e base
-              pronta para auth, banco e APIs.
-            </p>
-          </article>
-          <article className={styles.timelineCard}>
-            <span>Fase 02</span>
-            <strong>Control Tower</strong>
-            <p>
-              Dashboard de BCs, advertisers, pixels, ativos e tokens com trilha
-              de auditoria.
-            </p>
-          </article>
-          <article className={styles.timelineCard}>
-            <span>Fase 03</span>
-            <strong>Bulk Ops Engine</strong>
-            <p>
-              Templates, filas, retries, distribuicao em massa e monitoramento
-              de status por conta, BC e criativo.
-            </p>
-          </article>
         </div>
       </section>
-
-      <footer className={styles.footer}>
-        <div>
-          <span className={styles.footerTag}>ArisHub</span>
-          <p>
-            Base premium para o hub de TikTok Ads que voce quer escalar de
-            verdade.
-          </p>
-        </div>
-        <a className={styles.footerAction} href="#top">
-          Voltar ao topo
-        </a>
-      </footer>
     </main>
   );
 }

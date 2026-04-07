@@ -1,152 +1,169 @@
-export const controlSignals = [
+export const navItems = [
+  { label: "Visão Geral", href: "#visao-geral" },
+  { label: "Recursos", href: "#recursos" },
+  { label: "Casos de Uso", href: "#casos" },
+  { label: "Integração", href: "#integracao" },
+  { label: "Arquitetura", href: "#arquitetura" },
+];
+
+export const heroSignals = [
+  "OAuth 2.0 com isolamento por conta",
+  "Multi-BC com gestão centralizada",
+  "Vault de tokens criptografados",
+];
+
+export const heroTableRows = [
   {
-    label: "Modo operacional",
-    value: "Multi-BC native",
+    name: "Scale_BR_Main",
+    bc: "BC Prime",
+    status: "Ativo",
+    statusTone: "success",
   },
   {
-    label: "Nucleo de seguranca",
-    value: "Token vault isolado",
+    name: "UGC_Offer_07",
+    bc: "Agency Desk",
+    status: "Review",
+    statusTone: "warning",
   },
   {
-    label: "Motor principal",
-    value: "Bulk launch orquestrado",
+    name: "Retarget_Q2",
+    bc: "BC Holding",
+    status: "Ativo",
+    statusTone: "success",
+  },
+  {
+    name: "Launch_Multi_48",
+    bc: "Scale Hub",
+    status: "Sincronizando",
+    statusTone: "neutral",
   },
 ];
 
-export const architectureLayers = [
-  {
-    kicker: "Camada 01",
-    title: "Dominio primeiro",
-    description:
-      "Business rules da ArisHub separadas de auth, banco, queue e host.",
-  },
-  {
-    kicker: "Camada 02",
-    title: "Adapters trocaveis",
-    description:
-      "Supabase pode iniciar o jogo, mas nao define o formato do produto.",
-  },
-  {
-    kicker: "Camada 03",
-    title: "Operacao auditavel",
-    description:
-      "Cada token, pixel, advertiser e launch fica pronto para rastreio.",
-  },
-  {
-    kicker: "Camada 04",
-    title: "Escala progressiva",
-    description:
-      "A plataforma pode subir de nivel sem reescrever o core quando crescer.",
-  },
+export const capabilityMetrics = [
+  { value: "Multi-BC", label: "Operação nativa para múltiplos Business Centers" },
+  { value: "OAuth 2.0", label: "Autorização segura para advertisers e assets" },
+  { value: "Pixel Hub", label: "Gestão centralizada de pixels e vínculos" },
+  { value: "Bulk Launch", label: "Mesma estrutura publicada em várias contas" },
 ];
 
-export const platformModules = [
+export const platformHighlights = [
   {
-    kicker: "Control",
-    title: "Multi-BC Command",
+    eyebrow: "Escala",
+    title: "Campanhas em massa com a mesma lógica de lançamento",
     description:
-      "Mapa central de Business Centers, advertisers, owners, assets e permissoes com visao premium de operacao.",
-    bullets: [
-      "Onboarding de contas com OAuth 2.0",
-      "Separacao de acesso por BC, advertiser e operador",
-      "Leitura pronta para auditoria de ativos e ownership",
+      "Blueprints prontos para replicar campanhas, conjuntos e anúncios em várias contas sem perder rastreio.",
+    points: [
+      "Distribuição simultânea por advertiser e BC",
+      "Fila com retries, status e trilha de execução",
+      "Escolha de pixel, criativo e destino por lote",
     ],
   },
   {
-    kicker: "Security",
-    title: "Advertiser Vault",
+    eyebrow: "Controle",
+    title: "Command center para Business Centers e advertisers",
     description:
-      "Cofre de credenciais e tokens para manter refresh, isolamento e seguranca sem gambiarra.",
-    bullets: [
-      "Envelope de token por conta e BC",
-      "Rotacao e refresh controlados",
-      "Base pronta para criptografia e logs de acesso",
+      "Uma camada única para visualizar estrutura, ownership, permissões, health e ativos conectados.",
+    points: [
+      "Mapa de BCs, advertisers e membros",
+      "Permissões e ownership organizados",
+      "Preparado para auditoria operacional",
     ],
   },
   {
-    kicker: "Pixels",
-    title: "Pixel Control",
+    eyebrow: "Assets",
+    title: "Pixel manager e creative desk no mesmo fluxo",
     description:
-      "Gerenciamento dedicado de pixels, vinculos, ownership e distribuicao entre estruturas.",
-    bullets: [
-      "Criacao, vinculacao e transferencias",
-      "Mapa de associacao por advertiser",
-      "Preparado para health check e alertas de tracking",
+      "Pixels, criativos e status de review vivem no mesmo sistema para reduzir ruído na operação.",
+    points: [
+      "Criação, vínculo e transferência de pixels",
+      "Biblioteca de assets e histórico de uso",
+      "Base pronta para appeal e review tracking",
     ],
   },
   {
-    kicker: "Creatives",
-    title: "Creative Review Desk",
+    eyebrow: "Segurança",
+    title: "Vault de tokens com isolamento por conta",
     description:
-      "Biblioteca para criativos e acompanhamento de review, status e historico de distribuicao.",
-    bullets: [
-      "Versionamento por asset e campanha",
-      "Status operacional para aprovacao e bloqueios",
-      "Base para fluxo de appeal e evidence pack",
-    ],
-  },
-  {
-    kicker: "Scale",
-    title: "Bulk Launch Engine",
-    description:
-      "O motor principal da plataforma: publicar a mesma estrutura em varias contas e BCs sem perder controle.",
-    bullets: [
-      "Blueprints reutilizaveis de campanha",
-      "Fila por advertiser com retry e visibilidade",
-      "Controle fino por criativo, pixel e destino",
-    ],
-  },
-  {
-    kicker: "Ops",
-    title: "Trust and Audit Layer",
-    description:
-      "Trilha de decisao, risco e historico para deixar a operacao forte quando escalar time e budget.",
-    bullets: [
-      "Eventos centralizados de operacao",
-      "Historico por conta, usuario e acao",
-      "Base pronta para health score da estrutura",
+      "Tokens e credenciais sensíveis organizados por advertiser, com renovação e acesso controlado.",
+    points: [
+      "Envelope por BC e advertiser",
+      "Rotação segura e escopos explícitos",
+      "Arquitetura pronta para criptografia forte",
     ],
   },
 ];
 
-export const portabilityRules = [
+export const useCases = [
   {
-    kicker: "Produto",
-    title: "A regra mora no core da ArisHub",
+    title: "Agências",
     description:
-      "Fluxo de BC, advertiser, pixel, creative e launch vive em modulos internos, nao em funcoes coladas no provedor.",
+      "Centralize múltiplos clientes, contas e BCs sem misturar ativos nem permissões.",
+    bullets: [
+      "Separação por cliente",
+      "Equipe com acesso granular",
+      "Visão consolidada de operação",
+    ],
   },
   {
-    kicker: "Infra",
-    title: "Provider vira adapter, nao fundacao",
+    title: "Media Buyers",
     description:
-      "Banco, auth, storage e queue entram por interfaces substituiveis para voce evoluir sem refazer a plataforma.",
+      "Launch rápido, menos retrabalho e uma camada real para organizar campanhas em escala.",
+    bullets: [
+      "Blueprints reaproveitáveis",
+      "Pixels e criativos no mesmo fluxo",
+      "Lotes por oferta, geo ou conta",
+    ],
   },
   {
-    kicker: "Deploy",
-    title: "Hospedagem troca, dominio continua",
+    title: "Operações internas",
     description:
-      "Vercel hoje resolve deploy rapido. Amanhã pode virar outro runtime com a mesma camada de aplicacao.",
-  },
-  {
-    kicker: "Escala",
-    title: "Workers e jobs entram quando fizer sentido",
-    description:
-      "A v1 pode operar enxuta. Quando o volume pedir, a fila e os workers dedicados entram por extensao controlada.",
+      "Padronize processos, monitore health e reduza gargalos entre time de criação e time de mídia.",
+    bullets: [
+      "Status operacional centralizado",
+      "Histórico por ação e usuário",
+      "Base pronta para automações",
+    ],
   },
 ];
 
-export const launchSequence = [
+export const setupSteps = [
   {
-    title: "Selecionar blueprint",
-    description: "Campanha, conjunto, anuncio e criativo reutilizaveis.",
+    step: "01",
+    title: "Conecte seus ativos",
+    description:
+      "Autorize advertisers e Business Centers com OAuth 2.0 e prepare a base de tokens.",
+    detail: "Fluxo seguro, pronto para isolamento por estrutura.",
   },
   {
-    title: "Resolver assets",
-    description: "Pixel, landing, ownership e tokens antes do disparo.",
+    step: "02",
+    title: "Organize pixels e criativos",
+    description:
+      "Mapeie assets, domínios e criativos antes do lançamento para reduzir erro operacional.",
+    detail: "Tudo centralizado num desk só.",
   },
   {
-    title: "Distribuir por fila",
-    description: "Execucao segmentada por advertiser e BC com rastreio.",
+    step: "03",
+    title: "Dispare campanhas em escala",
+    description:
+      "Use blueprints para publicar a mesma lógica em várias contas com rastreio de ponta a ponta.",
+    detail: "Fila, status e visão de execução por lote.",
+  },
+];
+
+export const portabilityPoints = [
+  {
+    title: "Domínio desacoplado",
+    description:
+      "A regra da ArisHub fica no core do produto, não presa à hospedagem nem ao banco escolhido agora.",
+  },
+  {
+    title: "Infra trocável",
+    description:
+      "Vercel e Supabase entram como stack inicial barata, mas podem ser trocados sem reescrever a aplicação.",
+  },
+  {
+    title: "Pronto para escalar",
+    description:
+      "Quando volume, fila e workers dedicados fizerem sentido, a plataforma cresce sem quebrar a base.",
   },
 ];

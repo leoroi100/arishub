@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const displayFont = Cormorant_Garamond({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-});
-
-const bodyFont = Manrope({
-  variable: "--font-body",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
 });
@@ -17,7 +11,7 @@ const bodyFont = Manrope({
 export const metadata: Metadata = {
   title: "ArisHub",
   description:
-    "Control tower premium para operar TikTok Ads em escala com Multi-BC, pixels, criativos e bulk launch.",
+    "Plataforma premium para operar TikTok Ads com Multi-BC, OAuth 2.0, pixels e campanhas em massa.",
 };
 
 export default function RootLayout({
@@ -26,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${displayFont.variable} ${bodyFont.variable}`}>
+    <html lang="pt-BR" className={jakarta.variable}>
       <body>{children}</body>
     </html>
   );
