@@ -71,42 +71,43 @@ export default function Home() {
           tone="accent"
           variant="pill"
         >
-          <span className={styles.eyebrow}>Plataforma premium para TikTok Ads</span>
+          <span className={styles.eyebrow}>Infra premium para escalar TikTok Ads</span>
         </LiquidGlass>
 
         <h1 className={styles.heroTitle} id="visao-geral">
-          Controle <span>Business Centers</span>, advertisers e campanhas em
-          massa sem perder precisao.
+          Controle <span>Business Centers</span>, criativos, pixels e
+          campanhas em massa num unico sistema.
         </h1>
         <p className={styles.heroDescription}>
-          A ArisHub nasce para centralizar Multi-BC, OAuth 2.0, vault de tokens,
-          pixels, criativos e lancamentos simultaneos numa operacao realmente
-          organizada.
+          A ArisHub foi criada para quem quer operar TikTok Ads com estrutura de
+          verdade: Multi-BC, varias contas advertiser, bulk launch, mascarador
+          de criativo, pixel hub, cloaker proprio e uma camada centralizada para
+          a operacao inteira.
         </p>
 
         <div className={styles.heroActions}>
           <LiquidGlass
             className={`${styles.controlGlass} ${styles.controlLarge} ${styles.controlAccent}`}
             contentClassName={styles.controlContent}
-            interactive
-            tone="accent"
-            variant="pill"
-          >
-            <a className={styles.primaryControl} href="#integracao">
-              Comecar pela base
-            </a>
-          </LiquidGlass>
+              interactive
+              tone="accent"
+              variant="pill"
+            >
+              <a className={styles.primaryControl} href="#integracao">
+                Ver como a Aris escala
+              </a>
+            </LiquidGlass>
 
           <LiquidGlass
             className={`${styles.controlGlass} ${styles.controlLarge}`}
             contentClassName={styles.controlContent}
-            interactive
-            variant="pill"
-          >
-            <a className={styles.ghostControl} href="#casos">
-              Ver casos de uso
-            </a>
-          </LiquidGlass>
+              interactive
+              variant="pill"
+            >
+              <a className={styles.ghostControl} href="#casos">
+                Conhecer os diferenciais
+              </a>
+            </LiquidGlass>
         </div>
 
         <div className={styles.signalRow}>
@@ -166,16 +167,16 @@ export default function Home() {
               <aside className={styles.consoleSidebar}>
                 <div className={styles.sidebarCard}>
                   <span className={styles.sidebarLabel}>Blueprint ativo</span>
-                  <strong>Offer Drop / Full Multi-BC</strong>
-                  <p>48 advertisers, 12 BCs e 1 logica de lancamento.</p>
+                  <strong>Offer Drop / Multi-BC / Creative Mask</strong>
+                  <p>48 advertisers, 12 BCs, criativos organizados e mesma logica disparada em massa.</p>
                 </div>
 
                 <div className={styles.sidebarCard}>
-                  <span className={styles.sidebarLabel}>Controle central</span>
+                  <span className={styles.sidebarLabel}>Diferenciais reais</span>
                   <ul className={styles.sidebarList}>
                     <li>OAuth 2.0 isolado por advertiser</li>
-                    <li>Token vault criptografado</li>
-                    <li>Pixel manager integrado ao launch</li>
+                    <li>Mascarador de criativo e biblioteca operacional</li>
+                    <li>Pixel hub, cloaker proprio e stack centralizada</li>
                   </ul>
                 </div>
 
@@ -216,10 +217,10 @@ export default function Home() {
       <section className={styles.section} id="recursos">
         <div className={styles.sectionHeading}>
           <span className={styles.sectionEyebrow}>Recursos</span>
-          <h2>Recursos que seguram a operacao quando o volume sobe.</h2>
+          <h2>Diferenciais que fazem a ArisHub valer mais que so um painel.</h2>
           <p>
-            A proposta aqui e simples: menos improviso, mais controle. Cada
-            modulo precisa servir a escala real da operacao no TikTok Ads.
+            A proposta da ArisHub e simples: ser a camada que organiza, acelera
+            e protege a sua operacao de TikTok Ads quando o volume comeca a subir.
           </p>
         </div>
 
@@ -242,10 +243,10 @@ export default function Home() {
       <section className={styles.section} id="casos">
         <div className={styles.sectionHeading}>
           <span className={styles.sectionEyebrow}>Casos de uso</span>
-          <h2>Estrutura pensada para quem vive de performance.</h2>
+          <h2>Feita para quem quer escalar sem depender de gambiarra.</h2>
           <p>
-            A ArisHub nao e so uma vitrine de API. Ela precisa servir time de
-            midia, operacao e escala com clareza.
+            A ArisHub nao foi desenhada para parecer tech. Ela foi desenhada para
+            servir time de midia, estrutura interna e operacao high scale.
           </p>
         </div>
 
@@ -267,10 +268,10 @@ export default function Home() {
       <section className={styles.section} id="integracao">
         <div className={styles.sectionHeading}>
           <span className={styles.sectionEyebrow}>Integracao</span>
-          <h2>Base pronta para conectar, organizar e lancar.</h2>
+          <h2>Um fluxo so para conectar, preparar e escalar.</h2>
           <p>
-            O fluxo da home ja espelha a logica do produto: conectar ativos,
-            organizar estrutura e escalar a publicacao.
+            A experiencia da ArisHub e pensada para tirar a operacao do caos:
+            conecta, organiza a stack e dispara em massa com visibilidade.
           </p>
         </div>
 
@@ -293,11 +294,11 @@ export default function Home() {
         <div className={styles.architecturePanel}>
           <div className={styles.architectureCopy}>
             <span className={styles.sectionEyebrow}>Arquitetura</span>
-            <h2>Infra barata agora, produto preparado para crescer depois.</h2>
+            <h2>Produto pensado para virar infraestrutura, nao so software bonito.</h2>
             <p>
-              Vercel e Supabase entram como ponto de partida. A ArisHub nao vai
-              ficar presa neles. O desenho atual ja esta orientado a adapters,
-              dominio proprio e evolucao por etapas.
+              A ArisHub foi pensada para segurar operacao de verdade: conta,
+              criativo, pixel, pagina, cloaker, fila e lancamento centralizados
+              numa stack que pode crescer sem reescrever tudo.
             </p>
 
             <div className={styles.heroActions}>
@@ -309,7 +310,7 @@ export default function Home() {
                 variant="pill"
               >
                 <a className={styles.primaryControl} href="#top">
-                  Voltar ao topo
+                  Ver a visao geral
                 </a>
               </LiquidGlass>
 
@@ -320,7 +321,7 @@ export default function Home() {
                 variant="pill"
               >
                 <a className={styles.ghostControl} href="#recursos">
-                  Revisar modulos
+                  Explorar diferenciais
                 </a>
               </LiquidGlass>
             </div>
@@ -345,10 +346,11 @@ export default function Home() {
         >
           <div className={styles.ctaPanel}>
             <span className={styles.sectionEyebrow}>ArisHub</span>
-            <h2>A base agora esta mais proxima do nivel premium que esse produto precisa.</h2>
+            <h2>A ArisHub nasce para ser o centro de comando da sua operacao de TikTok Ads.</h2>
             <p>
-              O proximo passo e transformar essa home em fluxo real de produto:
-              auth, dashboard de BCs, advertisers, pixels e bulk launch.
+              Multi-BC, advertiser manager, pixel hub, bulk launch, mascarador
+              de criativo e cloaker proprio num unico produto, com visual premium
+              e stack pronta para escalar.
             </p>
           </div>
         </LiquidGlass>

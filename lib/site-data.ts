@@ -1,15 +1,15 @@
 export const navItems = [
   { label: "Visao Geral", href: "#visao-geral" },
-  { label: "Recursos", href: "#recursos" },
-  { label: "Casos de Uso", href: "#casos" },
-  { label: "Integracao", href: "#integracao" },
-  { label: "Arquitetura", href: "#arquitetura" },
+  { label: "Diferenciais", href: "#recursos" },
+  { label: "Para Quem", href: "#casos" },
+  { label: "Como Funciona", href: "#integracao" },
+  { label: "Infra", href: "#arquitetura" },
 ];
 
 export const heroSignals = [
-  "OAuth 2.0 com isolamento por conta",
-  "Multi-BC com gestao centralizada",
-  "Vault de tokens criptografados",
+  "Multi-BC e multiplas contas advertiser no mesmo painel",
+  "Mascarador de criativo, pixel hub e bulk launch",
+  "Cloaker proprio, tokens criptografados e operacao centralizada",
 ];
 
 export const heroTableRows = [
@@ -40,55 +40,55 @@ export const heroTableRows = [
 ];
 
 export const capabilityMetrics = [
-  { value: "Multi-BC", label: "Operacao nativa para multiplos Business Centers" },
-  { value: "OAuth 2.0", label: "Autorizacao segura para advertisers e assets" },
-  { value: "Pixel Hub", label: "Gestao centralizada de pixels e vinculos" },
-  { value: "Bulk Launch", label: "Mesma estrutura publicada em varias contas" },
+  { value: "Multi-BC", label: "Operacao nativa para varios Business Centers e advertisers" },
+  { value: "Creative Mask", label: "Mascarador de criativo para organizar variacoes e escala" },
+  { value: "Pixel Hub", label: "Gestao de pixels, vinculos, historico e estrutura de assets" },
+  { value: "Bulk Launch", label: "Mesmo setup disparado em varias contas com controle real" },
 ];
 
 export const platformHighlights = [
   {
     eyebrow: "Escala",
-    title: "Campanhas em massa com a mesma logica de lancamento",
+    title: "Bulk launch de verdade para publicar em massa sem virar caos",
     description:
-      "Blueprints prontos para replicar campanhas, conjuntos e anuncios em varias contas sem perder rastreio.",
+      "Crie uma vez e replique a mesma estrutura em varias contas, varios anunciantes e varios Business Centers com visao total do que foi disparado.",
     points: [
-      "Distribuicao simultanea por advertiser e BC",
-      "Fila com retries, status e trilha de execucao",
-      "Escolha de pixel, criativo e destino por lote",
+      "Distribuicao simultanea por advertiser, BC, oferta ou geo",
+      "Fila com retries, status, logs e rastreio de execucao por lote",
+      "Escolha de pixel, criativo, dominio e destino em cada disparo",
     ],
   },
   {
     eyebrow: "Controle",
-    title: "Command center para Business Centers e advertisers",
+    title: "Command center para Business Centers, advertisers e equipe",
     description:
-      "Uma camada unica para visualizar estrutura, ownership, permissoes, health e ativos conectados.",
+      "A ArisHub centraliza a operacao inteira num unico lugar: BCs, advertisers, membros, acessos, ativos, status e health operacional.",
     points: [
-      "Mapa de BCs, advertisers e membros",
-      "Permissoes e ownership organizados",
-      "Preparado para auditoria operacional",
+      "Mapa completo de BCs, advertisers, membros e ownership",
+      "Permissoes granulares para operacao, criativo, pixel e lancamento",
+      "Auditoria por usuario, acao e estrutura conectada",
     ],
   },
   {
-    eyebrow: "Assets",
-    title: "Pixel manager e creative desk no mesmo fluxo",
+    eyebrow: "Criativo",
+    title: "Creative desk com mascarador de criativo e biblioteca operacional",
     description:
-      "Pixels, criativos e status de review vivem no mesmo sistema para reduzir ruido na operacao.",
+      "Criativos deixam de ficar espalhados. A plataforma organiza biblioteca, variacoes, mascarador e historico de uso para acelerar escala sem bagunca.",
     points: [
-      "Criacao, vinculo e transferencia de pixels",
-      "Biblioteca de assets e historico de uso",
-      "Base pronta para appeal e review tracking",
+      "Mascarador de criativo com versoes e organizacao por oferta",
+      "Biblioteca de assets com historico de uso e reaproveitamento",
+      "Base pronta para review tracking, appeal e operacao criativa",
     ],
   },
   {
-    eyebrow: "Seguranca",
-    title: "Vault de tokens com isolamento por conta",
+    eyebrow: "Infra",
+    title: "Pixel hub, cloaker proprio e camada privada de operacao",
     description:
-      "Tokens e credenciais sensiveis organizados por advertiser, com renovacao e acesso controlado.",
+      "A ArisHub nao para na criacao de campanha. Ela conecta pixel, paginas, destinos e uma camada propria de roteamento para a operacao rodar com mais controle.",
     points: [
-      "Envelope por BC e advertiser",
-      "Rotacao segura e escopos explicitos",
-      "Arquitetura pronta para criptografia forte",
+      "Gestao de pixels, vinculos, transferencia e historico por estrutura",
+      "Cloaker proprio e camada de roteamento para operacao centralizada",
+      "Vault de tokens com isolamento, rotacao e criptografia por conta",
     ],
   },
 ];
@@ -97,31 +97,31 @@ export const useCases = [
   {
     title: "Agencias",
     description:
-      "Centralize multiplos clientes, contas e BCs sem misturar ativos nem permissoes.",
+      "Atenda varios clientes sem misturar ativos, acessos, criativos, pixels ou Business Centers.",
     bullets: [
-      "Separacao por cliente",
-      "Equipe com acesso granular",
-      "Visao consolidada de operacao",
+      "Separacao real por cliente e operacao",
+      "Equipe com acessos organizados por responsabilidade",
+      "Visao consolidada para lideranca e execucao",
     ],
   },
   {
     title: "Media Buyers",
     description:
-      "Launch rapido, menos retrabalho e uma camada real para organizar campanhas em escala.",
+      "Mais velocidade para subir ofertas, testar criativos e escalar contas sem depender de processo manual torto.",
     bullets: [
-      "Blueprints reaproveitaveis",
-      "Pixels e criativos no mesmo fluxo",
-      "Lotes por oferta, geo ou conta",
+      "Blueprints reaproveitaveis por oferta, geo ou conta",
+      "Criativos, pixels e paginas no mesmo fluxo de lancamento",
+      "Menos retrabalho e menos erro operacional na escala",
     ],
   },
   {
-    title: "Operacoes internas",
+    title: "Operacao high scale",
     description:
-      "Padronize processos, monitore health e reduza gargalos entre time de criacao e time de midia.",
+      "Para quem roda volume alto e precisa de estrutura, fila, controle e stack propria para nao travar a operacao.",
     bullets: [
-      "Status operacional centralizado",
-      "Historico por acao e usuario",
-      "Base pronta para automacoes",
+      "Mascarador de criativo e stack pronta para volume",
+      "Cloaker proprio e roteamento centralizado na operacao",
+      "Historico, health, status e automacao no mesmo painel",
     ],
   },
 ];
@@ -129,41 +129,41 @@ export const useCases = [
 export const setupSteps = [
   {
     step: "01",
-    title: "Conecte seus ativos",
+    title: "Conecte BCs, advertisers e acessos",
     description:
-      "Autorize advertisers e Business Centers com OAuth 2.0 e prepare a base de tokens.",
-    detail: "Fluxo seguro, pronto para isolamento por estrutura.",
+      "Autorize advertisers e Business Centers com OAuth 2.0 e monte sua base de operacao sem perder isolamento por conta.",
+    detail: "Tudo entra organizado, segregado e pronto para escalar.",
   },
   {
     step: "02",
-    title: "Organize pixels e criativos",
+    title: "Monte a stack de criativos, pixels e paginas",
     description:
-      "Mapeie assets, dominios e criativos antes do lancamento para reduzir erro operacional.",
-    detail: "Tudo centralizado num desk so.",
+      "Centralize mascarador de criativo, pixel hub, dominios, paginas e destinos antes de disparar.",
+    detail: "Criativo, tracking e entrega rodando no mesmo fluxo.",
   },
   {
     step: "03",
-    title: "Dispare campanhas em escala",
+    title: "Dispare em massa com monitoramento real",
     description:
-      "Use blueprints para publicar a mesma logica em varias contas com rastreio de ponta a ponta.",
-    detail: "Fila, status e visao de execucao por lote.",
+      "Publique a mesma logica em varias contas e BCs com fila, controle, status e rastreio de ponta a ponta.",
+    detail: "Escala com organizacao, logs e execucao visivel.",
   },
 ];
 
 export const portabilityPoints = [
   {
-    title: "Dominio desacoplado",
+    title: "Stack propria de operacao",
     description:
-      "A regra da ArisHub fica no core do produto, nao presa a hospedagem nem ao banco escolhido agora.",
+      "A ArisHub foi pensada como camada proprietaria para gerir conta, criativo, pixel, paginas e lancamento sem depender de remendo.",
   },
   {
-    title: "Infra trocavel",
+    title: "Infra flexivel e escalavel",
     description:
-      "Vercel e Supabase entram como stack inicial barata, mas podem ser trocados sem reescrever a aplicacao.",
+      "A stack inicial e enxuta, mas a base ja nasce preparada para fila dedicada, workers, servicos separados e crescimento real.",
   },
   {
-    title: "Pronto para escalar",
+    title: "Pensado para o lead virar operacao",
     description:
-      "Quando volume, fila e workers dedicados fizerem sentido, a plataforma cresce sem quebrar a base.",
+      "Nao e so uma dashboard bonita. A proposta da ArisHub e virar o centro de comando da sua operacao de TikTok Ads.",
   },
 ];
