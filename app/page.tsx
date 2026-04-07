@@ -1,4 +1,5 @@
 import { BrandMark } from "@/components/brand-mark";
+import LiquidEther from "@/components/liquid-ether";
 import { LiquidGlass } from "@/components/liquid-glass";
 import {
   capabilityMetrics,
@@ -45,6 +46,22 @@ export default function Home() {
       </header>
 
       <section className={styles.heroSection} id="top">
+        <div aria-hidden="true" className={styles.heroEther}>
+          <LiquidEther
+            autoDemo
+            autoIntensity={1.9}
+            autoResumeDelay={800}
+            autoSpeed={0.42}
+            colors={["#1a0a10", "#6f1634", "#d44474"]}
+            cursorSize={120}
+            isViscous
+            mouseForce={18}
+            resolution={0.42}
+            viscous={38}
+          />
+        </div>
+        <div aria-hidden="true" className={styles.heroVeil} />
+
         <LiquidGlass
           className={`${styles.eyebrowGlass} ${styles.controlAccent}`}
           contentClassName={styles.eyebrowContent}
