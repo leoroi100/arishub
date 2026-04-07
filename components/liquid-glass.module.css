@@ -2,17 +2,17 @@
   --lg-radius: 999px;
   --lg-blur: 28px;
   --lg-saturate: 170%;
-  --lg-base-top: rgba(44, 40, 43, 0.54);
-  --lg-base-bottom: rgba(10, 10, 12, 0.46);
-  --lg-density-top: rgba(255, 255, 255, 0.128);
-  --lg-density-mid: rgba(255, 255, 255, 0.042);
-  --lg-density-bottom: rgba(255, 255, 255, 0.012);
-  --lg-border: rgba(255, 255, 255, 0.12);
-  --lg-inner-border: rgba(255, 255, 255, 0.16);
-  --lg-bottom-tint: rgba(255, 255, 255, 0.01);
+  --lg-base-top: rgba(28, 27, 30, 0.58);
+  --lg-base-bottom: rgba(7, 7, 9, 0.54);
+  --lg-density-top: rgba(255, 255, 255, 0.095);
+  --lg-density-mid: rgba(255, 255, 255, 0.026);
+  --lg-density-bottom: rgba(255, 255, 255, 0.008);
+  --lg-border: rgba(255, 255, 255, 0.09);
+  --lg-inner-border: rgba(255, 255, 255, 0.1);
+  --lg-bottom-tint: rgba(255, 255, 255, 0.006);
   --lg-shadow-deep: rgba(0, 0, 0, 0.28);
   --lg-shadow-soft: rgba(0, 0, 0, 0.15);
-  --lg-highlight-opacity: 0.64;
+  --lg-highlight-opacity: 0.5;
   position: relative;
   display: block;
   width: fit-content;
@@ -22,8 +22,8 @@
   background:
     radial-gradient(
       140% 120% at 50% -24%,
-      rgba(255, 255, 255, 0.11) 0%,
-      rgba(255, 255, 255, 0.022) 34%,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.014) 34%,
       transparent 62%
     ),
     linear-gradient(
@@ -35,11 +35,11 @@
     linear-gradient(180deg, var(--lg-base-top) 0%, var(--lg-base-bottom) 100%);
   border: 1px solid var(--lg-border);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.026),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.016),
     0 20px 54px var(--lg-shadow-deep),
     0 6px 20px var(--lg-shadow-soft),
-    0 1px 0 rgba(255, 255, 255, 0.04);
+    0 1px 0 rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
   -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
   transform: translateZ(0);
@@ -57,19 +57,19 @@
   background:
     radial-gradient(
       120% 90% at 50% -8%,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0.076) 24%,
+      rgba(255, 255, 255, 0.13) 0%,
+      rgba(255, 255, 255, 0.045) 24%,
       transparent 58%
     ),
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(255, 255, 255, 0.035) 32%,
+      rgba(255, 255, 255, 0.07) 0%,
+      rgba(255, 255, 255, 0.02) 32%,
       var(--lg-bottom-tint) 100%
     );
   box-shadow:
     inset 0 1px 0 var(--lg-inner-border),
-    inset 0 -16px 20px rgba(255, 255, 255, 0.01);
+    inset 0 -16px 20px rgba(255, 255, 255, 0.006);
   pointer-events: none;
 }
 
@@ -81,13 +81,13 @@
   background:
     linear-gradient(
       112deg,
-      rgba(255, 255, 255, 0.18) 0%,
-      rgba(255, 255, 255, 0.076) 12%,
-      rgba(255, 255, 255, 0.02) 26%,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.045) 12%,
+      rgba(255, 255, 255, 0.012) 26%,
       transparent 42%
     ),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.082), transparent 18%);
-  opacity: 0.72;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 18%);
+  opacity: 0.56;
   pointer-events: none;
 }
 
@@ -99,14 +99,14 @@
     linear-gradient(
       104deg,
       transparent 0%,
-      rgba(255, 255, 255, 0.04) 16%,
-      rgba(255, 255, 255, 0.22) 46%,
-      rgba(255, 255, 255, 0.072) 70%,
+      rgba(255, 255, 255, 0.022) 16%,
+      rgba(255, 255, 255, 0.14) 46%,
+      rgba(255, 255, 255, 0.04) 70%,
       transparent 100%
     ),
     radial-gradient(
       82% 92% at 50% -4%,
-      rgba(255, 255, 255, 0.28),
+      rgba(255, 255, 255, 0.18),
       transparent 60%
     );
   mix-blend-mode: screen;
@@ -139,31 +139,31 @@
   --lg-radius: 28px;
   --lg-blur: 30px;
   --lg-saturate: 176%;
-  --lg-base-top: rgba(40, 36, 39, 0.58);
-  --lg-base-bottom: rgba(10, 10, 12, 0.48);
-  --lg-density-top: rgba(255, 255, 255, 0.12);
-  --lg-density-mid: rgba(255, 255, 255, 0.04);
-  --lg-density-bottom: rgba(255, 255, 255, 0.012);
-  --lg-border: rgba(255, 255, 255, 0.11);
+  --lg-base-top: rgba(22, 21, 24, 0.62);
+  --lg-base-bottom: rgba(6, 6, 8, 0.58);
+  --lg-density-top: rgba(255, 255, 255, 0.085);
+  --lg-density-mid: rgba(255, 255, 255, 0.024);
+  --lg-density-bottom: rgba(255, 255, 255, 0.008);
+  --lg-border: rgba(255, 255, 255, 0.08);
 }
 
 .neutral {
-  --lg-base-top: rgba(42, 38, 41, 0.56);
-  --lg-base-bottom: rgba(10, 10, 12, 0.46);
-  --lg-density-top: rgba(255, 255, 255, 0.125);
-  --lg-density-mid: rgba(255, 255, 255, 0.044);
-  --lg-density-bottom: rgba(255, 255, 255, 0.012);
-  --lg-bottom-tint: rgba(255, 255, 255, 0.01);
+  --lg-base-top: rgba(20, 20, 22, 0.6);
+  --lg-base-bottom: rgba(6, 6, 8, 0.56);
+  --lg-density-top: rgba(255, 255, 255, 0.09);
+  --lg-density-mid: rgba(255, 255, 255, 0.026);
+  --lg-density-bottom: rgba(255, 255, 255, 0.008);
+  --lg-bottom-tint: rgba(255, 255, 255, 0.006);
 }
 
 .accent {
-  --lg-base-top: rgba(60, 24, 37, 0.58);
-  --lg-base-bottom: rgba(14, 10, 14, 0.48);
-  --lg-density-top: rgba(255, 255, 255, 0.135);
-  --lg-density-mid: rgba(255, 255, 255, 0.046);
-  --lg-density-bottom: rgba(255, 255, 255, 0.013);
-  --lg-bottom-tint: rgba(143, 23, 56, 0.1);
-  --lg-border: rgba(255, 255, 255, 0.13);
+  --lg-base-top: rgba(46, 14, 21, 0.62);
+  --lg-base-bottom: rgba(9, 7, 9, 0.58);
+  --lg-density-top: rgba(255, 255, 255, 0.1);
+  --lg-density-mid: rgba(255, 255, 255, 0.028);
+  --lg-density-bottom: rgba(255, 255, 255, 0.008);
+  --lg-bottom-tint: rgba(143, 23, 56, 0.05);
+  --lg-border: rgba(255, 255, 255, 0.09);
 }
 
 .interactive:hover {

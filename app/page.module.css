@@ -262,12 +262,12 @@
 .heroTitle {
   position: relative;
   z-index: 2;
-  max-width: 980px;
+  max-width: 1240px;
   margin: 0;
-  font-size: clamp(3.25rem, 7vw, 6.5rem);
+  font-size: clamp(3.45rem, 8vw, 7.5rem);
   font-weight: 800;
   line-height: 0.98;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.075em;
   text-wrap: balance;
 }
 
@@ -278,7 +278,7 @@
 .heroDescription {
   position: relative;
   z-index: 2;
-  max-width: 760px;
+  max-width: 920px;
   margin: 24px 0 0;
   color: var(--text-secondary);
   font-size: 1.08rem;
@@ -330,9 +330,9 @@
   width: 100%;
   border-radius: 28px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0.006) 26%, transparent 56%),
-    linear-gradient(180deg, rgba(30, 28, 32, 0.2), rgba(10, 10, 12, 0.14)),
-    rgba(8, 8, 10, 0.38);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.016), rgba(255, 255, 255, 0.004) 24%, transparent 56%),
+    linear-gradient(180deg, rgba(20, 19, 22, 0.1), rgba(8, 8, 10, 0.08)),
+    rgba(5, 5, 7, 0.58);
 }
 
 .consoleTopbar {
@@ -341,8 +341,10 @@
   justify-content: space-between;
   gap: 16px;
   padding: 18px 22px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0.006)),
+    rgba(12, 12, 14, 0.62);
 }
 
 .consoleDots {
@@ -395,22 +397,22 @@
 .ctaPanel {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.055);
   border-radius: 24px;
   background:
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.045) 0%,
-      rgba(255, 255, 255, 0.012) 34%,
-      rgba(255, 255, 255, 0.008) 100%
+      rgba(255, 255, 255, 0.028) 0%,
+      rgba(255, 255, 255, 0.008) 34%,
+      rgba(255, 255, 255, 0.004) 100%
     ),
-    linear-gradient(180deg, rgba(34, 32, 36, 0.2), rgba(14, 13, 16, 0.12) 18%, rgba(8, 8, 10, 0.82));
+    linear-gradient(180deg, rgba(20, 19, 22, 0.08), rgba(10, 10, 12, 0.05) 18%, rgba(4, 4, 6, 0.9));
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.09),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.02),
-    0 18px 40px rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(18px) saturate(150%);
-  -webkit-backdrop-filter: blur(18px) saturate(150%);
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.01),
+    0 18px 40px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
 }
 
 .consoleTable::before,
@@ -427,15 +429,15 @@
   background:
     radial-gradient(
       100% 82% at 50% 0%,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(255, 255, 255, 0.04) 28%,
+      rgba(255, 255, 255, 0.055) 0%,
+      rgba(255, 255, 255, 0.02) 28%,
       transparent 64%
     ),
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.065) 0%,
-      rgba(255, 255, 255, 0.018) 36%,
-      rgba(143, 23, 56, 0.04) 100%
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.012) 36%,
+      rgba(143, 23, 56, 0.018) 100%
     );
   pointer-events: none;
 }
@@ -454,12 +456,12 @@
   background:
     linear-gradient(
       112deg,
-      rgba(255, 255, 255, 0.14) 0%,
-      rgba(255, 255, 255, 0.05) 14%,
-      rgba(255, 255, 255, 0.015) 30%,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.028) 14%,
+      rgba(255, 255, 255, 0.008) 30%,
       transparent 46%
     );
-  opacity: 0.65;
+  opacity: 0.46;
   pointer-events: none;
 }
 
