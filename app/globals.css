@@ -9,7 +9,7 @@
   --text-secondary: rgba(252, 252, 253, 0.68);
   --text-muted: rgba(252, 252, 253, 0.42);
   --accent: #8f1738;
-  --accent-strong: #c32756;
+  --accent-strong: #cf1f3f;
   --accent-soft: rgba(143, 23, 56, 0.18);
   --success: #50d18a;
   --container: 1180px;
@@ -38,7 +38,7 @@ body {
 }
 
 *::selection {
-  background: rgba(195, 39, 86, 0.3);
+  background: rgba(207, 31, 63, 0.3);
 }
 
 a {
