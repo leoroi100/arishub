@@ -1,5 +1,4 @@
 import { BrandMark } from "@/components/brand-mark";
-import { FluidNavbar } from "@/components/fluid-navbar";
 import { LiquidGlass } from "@/components/liquid-glass";
 import {
   capabilityMetrics,
@@ -25,20 +24,15 @@ export default function Home() {
       <div aria-hidden="true" className={styles.pageGlow} />
 
       <header className={styles.navbar}>
-        <FluidNavbar
-          className={styles.navShell}
-          contentClassName={styles.navShellContent}
-        >
-          <div className={styles.navBrandSlot}>
+        <div className={styles.navShell}>
+          <div className={styles.navShellContent}>
             <a className={styles.brand} href="#top">
               <BrandMark />
               <span className={styles.brandText}>
                 Aris<span>Hub</span>
               </span>
             </a>
-          </div>
 
-          <div className={styles.navCenterTrack}>
             <nav className={styles.navLinks} aria-label="Navegacao principal">
               {navItems.map((item) => (
                 <a key={item.href} href={item.href}>
@@ -47,32 +41,7 @@ export default function Home() {
               ))}
             </nav>
           </div>
-
-          <div className={styles.navActions}>
-            <LiquidGlass
-              className={`${styles.controlGlass} ${styles.controlCompact}`}
-              contentClassName={styles.controlContent}
-              interactive
-              variant="pill"
-            >
-              <a className={styles.ghostControl} href="#arquitetura">
-                Ver estrutura
-              </a>
-            </LiquidGlass>
-
-            <LiquidGlass
-              className={`${styles.controlGlass} ${styles.controlCompact} ${styles.controlAccent}`}
-              contentClassName={styles.controlContent}
-              interactive
-              tone="accent"
-              variant="pill"
-            >
-              <a className={styles.primaryControl} href="#recursos">
-                Ver recursos
-              </a>
-            </LiquidGlass>
-          </div>
-        </FluidNavbar>
+        </div>
       </header>
 
       <section className={styles.heroSection} id="top">
