@@ -9,8 +9,8 @@
   inset: 0;
   z-index: -2;
   background:
-    radial-gradient(circle at 50% 8%, rgba(143, 23, 56, 0.22), transparent 20%),
-    radial-gradient(circle at 50% 20%, rgba(143, 23, 56, 0.12), transparent 34%),
+    radial-gradient(circle at 50% 8%, rgba(143, 23, 56, 0.24), transparent 18%),
+    radial-gradient(circle at 50% 18%, rgba(143, 23, 56, 0.12), transparent 32%),
     #050505;
   pointer-events: none;
 }
@@ -21,11 +21,11 @@
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 92px 92px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.4));
-  opacity: 0.32;
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.38));
+  opacity: 0.28;
   pointer-events: none;
 }
 
@@ -43,17 +43,26 @@
   position: sticky;
   top: 14px;
   z-index: 20;
+  margin-top: 14px;
+}
+
+.glassNavbar {
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.3);
+}
+
+.navbarInner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  margin-top: 14px;
   padding: 16px 22px;
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  background: rgba(10, 10, 12, 0.82);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(22px);
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
+    rgba(10, 10, 12, 0.5);
 }
 
 .brand {
@@ -95,6 +104,32 @@
   gap: 12px;
 }
 
+.glassPrimaryButton,
+.glassGhostButton,
+.glassEyebrow,
+.glassChip,
+.glassMetric,
+.glassCta {
+  display: inline-flex;
+}
+
+.glassPrimaryButton,
+.glassGhostButton {
+  border-radius: 14px;
+}
+
+.glassPrimaryButton {
+  box-shadow: 0 14px 34px rgba(123, 18, 49, 0.28);
+}
+
+.glassEyebrow {
+  border-radius: 999px;
+}
+
+.glassChip {
+  border-radius: 999px;
+}
+
 .primaryButton,
 .ghostButton {
   display: inline-flex;
@@ -107,31 +142,23 @@
   font-weight: 700;
   transition:
     transform 180ms ease,
-    border-color 180ms ease,
-    background 180ms ease,
-    box-shadow 180ms ease;
+    color 180ms ease,
+    background 180ms ease;
 }
 
 .primaryButton {
-  border: 1px solid rgba(209, 68, 115, 0.42);
-  background: linear-gradient(180deg, #9e1c43, #75122f);
-  box-shadow: 0 14px 32px rgba(126, 22, 52, 0.28);
-}
-
-.primaryButton:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 18px 36px rgba(126, 22, 52, 0.34);
+  min-width: 156px;
+  background: linear-gradient(180deg, rgba(188, 33, 81, 0.34), rgba(117, 18, 47, 0.38));
+  color: #fff8fb;
 }
 
 .ghostButton {
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+  min-width: 148px;
+  background: rgba(255, 255, 255, 0.01);
   color: var(--text-secondary);
 }
 
 .ghostButton:hover {
-  transform: translateY(-1px);
-  border-color: rgba(209, 68, 115, 0.34);
   color: var(--text-primary);
 }
 
@@ -139,7 +166,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 106px;
+  padding-top: 108px;
   text-align: center;
 }
 
@@ -158,16 +185,15 @@
 }
 
 .eyebrow {
-  padding: 10px 14px;
-  border: 1px solid rgba(209, 68, 115, 0.22);
-  border-radius: 999px;
-  background: rgba(143, 23, 56, 0.1);
+  min-height: 38px;
+  padding: 0 16px;
+  background: rgba(143, 23, 56, 0.09);
 }
 
 .heroTitle {
   max-width: 980px;
   margin: 24px 0 0;
-  font-size: clamp(3.2rem, 7vw, 6.3rem);
+  font-size: clamp(3.2rem, 7vw, 6.4rem);
   font-weight: 800;
   line-height: 0.98;
   letter-spacing: -0.06em;
@@ -202,26 +228,29 @@
   align-items: center;
   min-height: 38px;
   padding: 0 14px;
-  border: 1px solid var(--border);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.015);
   color: var(--text-secondary);
   font-size: 0.9rem;
 }
 
 .consoleSection {
-  margin-top: 46px;
+  margin-top: 48px;
+}
+
+.glassConsole {
+  display: block;
+  width: 100%;
+  border-radius: 28px;
+  box-shadow: var(--shadow);
 }
 
 .consoleShell {
   overflow: hidden;
-  border: 1px solid var(--border);
   border-radius: 28px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
-    rgba(9, 9, 11, 0.92);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(26px);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+    rgba(9, 9, 11, 0.52);
 }
 
 .consoleTopbar {
@@ -230,7 +259,7 @@
   justify-content: space-between;
   gap: 16px;
   padding: 18px 22px;
-  border-bottom: 1px solid var(--border-soft);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .consoleDots {
@@ -247,15 +276,15 @@
 }
 
 .consoleDots span:nth-child(1) {
-  background: rgba(209, 68, 115, 0.92);
+  background: rgba(209, 68, 115, 0.96);
 }
 
 .consoleDots span:nth-child(2) {
-  background: rgba(160, 49, 85, 0.72);
+  background: rgba(162, 36, 75, 0.76);
 }
 
 .consoleDots span:nth-child(3) {
-  background: rgba(125, 30, 56, 0.62);
+  background: rgba(124, 21, 51, 0.62);
 }
 
 .consoleUrl,
@@ -265,7 +294,7 @@
 }
 
 .consoleState {
-  color: #f2d1db;
+  color: #f3d6df;
 }
 
 .consoleBody {
@@ -288,7 +317,7 @@
   border-radius: 22px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.01)),
-    var(--panel);
+    rgba(12, 12, 14, 0.84);
   backdrop-filter: blur(20px);
 }
 
@@ -304,7 +333,7 @@
   inset: 0;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 18%),
-    linear-gradient(135deg, rgba(143, 23, 56, 0.12), transparent 35%);
+    linear-gradient(135deg, rgba(143, 23, 56, 0.1), transparent 36%);
   pointer-events: none;
 }
 
@@ -330,7 +359,7 @@
 
 .tableRow {
   padding: 16px 10px;
-  border-top: 1px solid var(--border-soft);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .tableRow strong {
@@ -458,11 +487,17 @@
   margin-top: 20px;
 }
 
-.metricCard {
-  padding: 22px 18px;
-  border: 1px solid var(--border);
+.glassMetric {
+  display: block;
+  width: 100%;
   border-radius: 18px;
-  background: rgba(10, 10, 12, 0.84);
+}
+
+.metricCard {
+  min-height: 100%;
+  padding: 22px 18px;
+  border-radius: 18px;
+  background: rgba(10, 10, 12, 0.28);
   text-align: center;
 }
 
@@ -605,6 +640,12 @@
   margin-top: 112px;
 }
 
+.glassCta {
+  display: block;
+  width: 100%;
+  border-radius: 26px;
+}
+
 .ctaPanel {
   padding: 34px;
   text-align: center;
@@ -626,7 +667,7 @@
 }
 
 @media (max-width: 860px) {
-  .navbar {
+  .navbarInner {
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -648,6 +689,11 @@
 
   .heroActions {
     flex-direction: column;
+    width: 100%;
+  }
+
+  .heroActions > *,
+  .navActions > * {
     width: 100%;
   }
 
@@ -677,8 +723,11 @@
   }
 
   .navbar {
-    padding: 14px;
     top: 10px;
+  }
+
+  .navbarInner {
+    padding: 14px;
   }
 
   .heroTitle {

@@ -1,4 +1,5 @@
 import { BrandMark } from "@/components/brand-mark";
+import { GlassSurface } from "@/components/glass-surface";
 import {
   capabilityMetrics,
   heroSignals,
@@ -21,145 +22,170 @@ export default function Home() {
   return (
     <main className={styles.page}>
       <header className={styles.navbar}>
-        <a className={styles.brand} href="#top">
-          <BrandMark />
-          <span className={styles.brandText}>
-            Aris<span>Hub</span>
-          </span>
-        </a>
-
-        <nav className={styles.navLinks} aria-label="Navegação principal">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href}>
-              {item.label}
+        <GlassSurface className={styles.glassNavbar} variant="navbar">
+          <div className={styles.navbarInner}>
+            <a className={styles.brand} href="#top">
+              <BrandMark />
+              <span className={styles.brandText}>
+                Aris<span>Hub</span>
+              </span>
             </a>
-          ))}
-        </nav>
 
-        <div className={styles.navActions}>
-          <a className={styles.ghostButton} href="#arquitetura">
-            Ver estrutura
-          </a>
-          <a className={styles.primaryButton} href="#recursos">
-            Ver recursos
-          </a>
-        </div>
+            <nav className={styles.navLinks} aria-label="Navegacao principal">
+              {navItems.map((item) => (
+                <a key={item.href} href={item.href}>
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+
+            <div className={styles.navActions}>
+              <GlassSurface className={styles.glassGhostButton} variant="button">
+                <a className={styles.ghostButton} href="#arquitetura">
+                  Ver estrutura
+                </a>
+              </GlassSurface>
+
+              <GlassSurface className={styles.glassPrimaryButton} variant="button">
+                <a className={styles.primaryButton} href="#recursos">
+                  Ver recursos
+                </a>
+              </GlassSurface>
+            </div>
+          </div>
+        </GlassSurface>
       </header>
 
       <section className={styles.heroSection} id="top">
-        <span className={styles.eyebrow}>Plataforma premium para TikTok Ads</span>
+        <GlassSurface className={styles.glassEyebrow} variant="pill">
+          <span className={styles.eyebrow}>Plataforma premium para TikTok Ads</span>
+        </GlassSurface>
+
         <h1 className={styles.heroTitle} id="visao-geral">
           Controle <span>Business Centers</span>, advertisers e campanhas em
-          massa sem perder precisão.
+          massa sem perder precisao.
         </h1>
         <p className={styles.heroDescription}>
           A ArisHub nasce para centralizar Multi-BC, OAuth 2.0, vault de tokens,
-          pixels, criativos e lançamentos simultâneos numa operação realmente
+          pixels, criativos e lancamentos simultaneos numa operacao realmente
           organizada.
         </p>
 
         <div className={styles.heroActions}>
-          <a className={styles.primaryButton} href="#integracao">
-            Começar pela base
-          </a>
-          <a className={styles.ghostButton} href="#casos">
-            Ver casos de uso
-          </a>
+          <GlassSurface className={styles.glassPrimaryButton} variant="button">
+            <a className={styles.primaryButton} href="#integracao">
+              Comecar pela base
+            </a>
+          </GlassSurface>
+
+          <GlassSurface className={styles.glassGhostButton} variant="button">
+            <a className={styles.ghostButton} href="#casos">
+              Ver casos de uso
+            </a>
+          </GlassSurface>
         </div>
 
         <div className={styles.signalRow}>
           {heroSignals.map((signal) => (
-            <span className={styles.signalChip} key={signal}>
-              {signal}
-            </span>
+            <GlassSurface className={styles.glassChip} key={signal} variant="pill">
+              <span className={styles.signalChip}>{signal}</span>
+            </GlassSurface>
           ))}
         </div>
       </section>
 
       <section className={styles.consoleSection}>
-        <div className={styles.consoleShell}>
-          <div className={styles.consoleTopbar}>
-            <div className={styles.consoleDots}>
-              <span />
-              <span />
-              <span />
-            </div>
-            <span className={styles.consoleUrl}>launch.arishub.app</span>
-            <span className={styles.consoleState}>Operação ao vivo</span>
-          </div>
-
-          <div className={styles.consoleBody}>
-            <div className={styles.consoleTable}>
-              <div className={styles.tableHeader}>
-                <span>Campanha</span>
-                <span>Business Center</span>
-                <span>Status</span>
+        <GlassSurface className={styles.glassConsole} variant="panel">
+          <div className={styles.consoleShell}>
+            <div className={styles.consoleTopbar}>
+              <div className={styles.consoleDots}>
+                <span />
+                <span />
+                <span />
               </div>
-
-              {heroTableRows.map((row) => (
-                <div className={styles.tableRow} key={row.name}>
-                  <strong>{row.name}</strong>
-                  <span>{row.bc}</span>
-                  <span
-                    className={`${styles.statusPill} ${
-                      statusClassMap[row.statusTone as keyof typeof statusClassMap]
-                    }`}
-                  >
-                    {row.status}
-                  </span>
-                </div>
-              ))}
+              <span className={styles.consoleUrl}>launch.arishub.app</span>
+              <span className={styles.consoleState}>Operacao ao vivo</span>
             </div>
 
-            <aside className={styles.consoleSidebar}>
-              <div className={styles.sidebarCard}>
-                <span className={styles.sidebarLabel}>Blueprint ativo</span>
-                <strong>Offer Drop / Full Multi-BC</strong>
-                <p>48 advertisers, 12 BCs e 1 lógica de lançamento.</p>
-              </div>
+            <div className={styles.consoleBody}>
+              <div className={styles.consoleTable}>
+                <div className={styles.tableHeader}>
+                  <span>Campanha</span>
+                  <span>Business Center</span>
+                  <span>Status</span>
+                </div>
 
-              <div className={styles.sidebarCard}>
-                <span className={styles.sidebarLabel}>Controle central</span>
-                <ul className={styles.sidebarList}>
-                  <li>OAuth 2.0 isolado por advertiser</li>
-                  <li>Token vault criptografado</li>
-                  <li>Pixel manager integrado ao launch</li>
-                </ul>
-              </div>
-
-              <div className={styles.sidebarCard}>
-                <span className={styles.sidebarLabel}>Execução</span>
-                <div className={styles.progressBlock}>
-                  <div className={styles.progressTrack}>
-                    <div className={styles.progressBar} />
+                {heroTableRows.map((row) => (
+                  <div className={styles.tableRow} key={row.name}>
+                    <strong>{row.name}</strong>
+                    <span>{row.bc}</span>
+                    <span
+                      className={`${styles.statusPill} ${
+                        statusClassMap[row.statusTone as keyof typeof statusClassMap]
+                      }`}
+                    >
+                      {row.status}
+                    </span>
                   </div>
-                  <div className={styles.progressMeta}>
-                    <span>72% distribuído</span>
-                    <span>13 contas restantes</span>
+                ))}
+              </div>
+
+              <aside className={styles.consoleSidebar}>
+                <div className={styles.sidebarCard}>
+                  <span className={styles.sidebarLabel}>Blueprint ativo</span>
+                  <strong>Offer Drop / Full Multi-BC</strong>
+                  <p>48 advertisers, 12 BCs e 1 logica de lancamento.</p>
+                </div>
+
+                <div className={styles.sidebarCard}>
+                  <span className={styles.sidebarLabel}>Controle central</span>
+                  <ul className={styles.sidebarList}>
+                    <li>OAuth 2.0 isolado por advertiser</li>
+                    <li>Token vault criptografado</li>
+                    <li>Pixel manager integrado ao launch</li>
+                  </ul>
+                </div>
+
+                <div className={styles.sidebarCard}>
+                  <span className={styles.sidebarLabel}>Execucao</span>
+                  <div className={styles.progressBlock}>
+                    <div className={styles.progressTrack}>
+                      <div className={styles.progressBar} />
+                    </div>
+                    <div className={styles.progressMeta}>
+                      <span>72% distribuido</span>
+                      <span>13 contas restantes</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </aside>
+              </aside>
+            </div>
           </div>
-        </div>
+        </GlassSurface>
       </section>
 
       <section className={styles.metricsBar}>
         {capabilityMetrics.map((metric) => (
-          <article className={styles.metricCard} key={metric.value}>
-            <strong>{metric.value}</strong>
-            <span>{metric.label}</span>
-          </article>
+          <GlassSurface
+            className={styles.glassMetric}
+            key={metric.value}
+            variant="metric"
+          >
+            <article className={styles.metricCard}>
+              <strong>{metric.value}</strong>
+              <span>{metric.label}</span>
+            </article>
+          </GlassSurface>
         ))}
       </section>
 
       <section className={styles.section} id="recursos">
         <div className={styles.sectionHeading}>
           <span className={styles.sectionEyebrow}>Recursos</span>
-          <h2>Recursos que seguram a operação quando o volume sobe.</h2>
+          <h2>Recursos que seguram a operacao quando o volume sobe.</h2>
           <p>
-            A proposta aqui é simples: menos improviso, mais controle. Cada
-            módulo precisa servir a escala real da operação no TikTok Ads.
+            A proposta aqui e simples: menos improviso, mais controle. Cada
+            modulo precisa servir a escala real da operacao no TikTok Ads.
           </p>
         </div>
 
@@ -184,8 +210,8 @@ export default function Home() {
           <span className={styles.sectionEyebrow}>Casos de uso</span>
           <h2>Estrutura pensada para quem vive de performance.</h2>
           <p>
-            A ArisHub não é só uma vitrine de API. Ela precisa servir time de
-            mídia, operação e escala com clareza.
+            A ArisHub nao e so uma vitrine de API. Ela precisa servir time de
+            midia, operacao e escala com clareza.
           </p>
         </div>
 
@@ -206,11 +232,11 @@ export default function Home() {
 
       <section className={styles.section} id="integracao">
         <div className={styles.sectionHeading}>
-          <span className={styles.sectionEyebrow}>Integração</span>
-          <h2>Base pronta para conectar, organizar e lançar.</h2>
+          <span className={styles.sectionEyebrow}>Integracao</span>
+          <h2>Base pronta para conectar, organizar e lancar.</h2>
           <p>
-            O fluxo da home já espelha a lógica do produto: conectar ativos,
-            organizar estrutura e escalar a publicação.
+            O fluxo da home ja espelha a logica do produto: conectar ativos,
+            organizar estrutura e escalar a publicacao.
           </p>
         </div>
 
@@ -235,17 +261,21 @@ export default function Home() {
             <span className={styles.sectionEyebrow}>Arquitetura</span>
             <h2>Infra barata agora, produto preparado para crescer depois.</h2>
             <p>
-              Vercel e Supabase entram como ponto de partida. A ArisHub não vai
-              ficar presa neles. O desenho atual já está orientado a adapters,
-              domínio próprio e evolução por etapas.
+              Vercel e Supabase entram como ponto de partida. A ArisHub nao vai
+              ficar presa neles. O desenho atual ja esta orientado a adapters,
+              dominio proprio e evolucao por etapas.
             </p>
             <div className={styles.heroActions}>
-              <a className={styles.primaryButton} href="#top">
-                Voltar ao topo
-              </a>
-              <a className={styles.ghostButton} href="#recursos">
-                Revisar módulos
-              </a>
+              <GlassSurface className={styles.glassPrimaryButton} variant="button">
+                <a className={styles.primaryButton} href="#top">
+                  Voltar ao topo
+                </a>
+              </GlassSurface>
+              <GlassSurface className={styles.glassGhostButton} variant="button">
+                <a className={styles.ghostButton} href="#recursos">
+                  Revisar modulos
+                </a>
+              </GlassSurface>
             </div>
           </div>
 
@@ -261,14 +291,16 @@ export default function Home() {
       </section>
 
       <section className={styles.ctaSection}>
-        <div className={styles.ctaPanel}>
-          <span className={styles.sectionEyebrow}>ArisHub</span>
-          <h2>A base agora está mais próxima do nível premium que esse produto precisa.</h2>
-          <p>
-            O próximo passo é transformar essa home em fluxo real de produto:
-            auth, dashboard de BCs, advertisers, pixels e bulk launch.
-          </p>
-        </div>
+        <GlassSurface className={styles.glassCta} variant="panel">
+          <div className={styles.ctaPanel}>
+            <span className={styles.sectionEyebrow}>ArisHub</span>
+            <h2>A base agora esta mais proxima do nivel premium que esse produto precisa.</h2>
+            <p>
+              O proximo passo e transformar essa home em fluxo real de produto:
+              auth, dashboard de BCs, advertisers, pixels e bulk launch.
+            </p>
+          </div>
+        </GlassSurface>
       </section>
     </main>
   );

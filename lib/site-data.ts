@@ -1,14 +1,14 @@
 export const navItems = [
-  { label: "Visão Geral", href: "#visao-geral" },
+  { label: "Visao Geral", href: "#visao-geral" },
   { label: "Recursos", href: "#recursos" },
   { label: "Casos de Uso", href: "#casos" },
-  { label: "Integração", href: "#integracao" },
+  { label: "Integracao", href: "#integracao" },
   { label: "Arquitetura", href: "#arquitetura" },
 ];
 
 export const heroSignals = [
   "OAuth 2.0 com isolamento por conta",
-  "Multi-BC com gestão centralizada",
+  "Multi-BC com gestao centralizada",
   "Vault de tokens criptografados",
 ];
 
@@ -40,21 +40,21 @@ export const heroTableRows = [
 ];
 
 export const capabilityMetrics = [
-  { value: "Multi-BC", label: "Operação nativa para múltiplos Business Centers" },
-  { value: "OAuth 2.0", label: "Autorização segura para advertisers e assets" },
-  { value: "Pixel Hub", label: "Gestão centralizada de pixels e vínculos" },
-  { value: "Bulk Launch", label: "Mesma estrutura publicada em várias contas" },
+  { value: "Multi-BC", label: "Operacao nativa para multiplos Business Centers" },
+  { value: "OAuth 2.0", label: "Autorizacao segura para advertisers e assets" },
+  { value: "Pixel Hub", label: "Gestao centralizada de pixels e vinculos" },
+  { value: "Bulk Launch", label: "Mesma estrutura publicada em varias contas" },
 ];
 
 export const platformHighlights = [
   {
     eyebrow: "Escala",
-    title: "Campanhas em massa com a mesma lógica de lançamento",
+    title: "Campanhas em massa com a mesma logica de lancamento",
     description:
-      "Blueprints prontos para replicar campanhas, conjuntos e anúncios em várias contas sem perder rastreio.",
+      "Blueprints prontos para replicar campanhas, conjuntos e anuncios em varias contas sem perder rastreio.",
     points: [
-      "Distribuição simultânea por advertiser e BC",
-      "Fila com retries, status e trilha de execução",
+      "Distribuicao simultanea por advertiser e BC",
+      "Fila com retries, status e trilha de execucao",
       "Escolha de pixel, criativo e destino por lote",
     ],
   },
@@ -62,10 +62,10 @@ export const platformHighlights = [
     eyebrow: "Controle",
     title: "Command center para Business Centers e advertisers",
     description:
-      "Uma camada única para visualizar estrutura, ownership, permissões, health e ativos conectados.",
+      "Uma camada unica para visualizar estrutura, ownership, permissoes, health e ativos conectados.",
     points: [
       "Mapa de BCs, advertisers e membros",
-      "Permissões e ownership organizados",
+      "Permissoes e ownership organizados",
       "Preparado para auditoria operacional",
     ],
   },
@@ -73,21 +73,21 @@ export const platformHighlights = [
     eyebrow: "Assets",
     title: "Pixel manager e creative desk no mesmo fluxo",
     description:
-      "Pixels, criativos e status de review vivem no mesmo sistema para reduzir ruído na operação.",
+      "Pixels, criativos e status de review vivem no mesmo sistema para reduzir ruido na operacao.",
     points: [
-      "Criação, vínculo e transferência de pixels",
-      "Biblioteca de assets e histórico de uso",
+      "Criacao, vinculo e transferencia de pixels",
+      "Biblioteca de assets e historico de uso",
       "Base pronta para appeal e review tracking",
     ],
   },
   {
-    eyebrow: "Segurança",
+    eyebrow: "Seguranca",
     title: "Vault de tokens com isolamento por conta",
     description:
-      "Tokens e credenciais sensíveis organizados por advertiser, com renovação e acesso controlado.",
+      "Tokens e credenciais sensiveis organizados por advertiser, com renovacao e acesso controlado.",
     points: [
       "Envelope por BC e advertiser",
-      "Rotação segura e escopos explícitos",
+      "Rotacao segura e escopos explicitos",
       "Arquitetura pronta para criptografia forte",
     ],
   },
@@ -95,33 +95,33 @@ export const platformHighlights = [
 
 export const useCases = [
   {
-    title: "Agências",
+    title: "Agencias",
     description:
-      "Centralize múltiplos clientes, contas e BCs sem misturar ativos nem permissões.",
+      "Centralize multiplos clientes, contas e BCs sem misturar ativos nem permissoes.",
     bullets: [
-      "Separação por cliente",
+      "Separacao por cliente",
       "Equipe com acesso granular",
-      "Visão consolidada de operação",
+      "Visao consolidada de operacao",
     ],
   },
   {
     title: "Media Buyers",
     description:
-      "Launch rápido, menos retrabalho e uma camada real para organizar campanhas em escala.",
+      "Launch rapido, menos retrabalho e uma camada real para organizar campanhas em escala.",
     bullets: [
-      "Blueprints reaproveitáveis",
+      "Blueprints reaproveitaveis",
       "Pixels e criativos no mesmo fluxo",
       "Lotes por oferta, geo ou conta",
     ],
   },
   {
-    title: "Operações internas",
+    title: "Operacoes internas",
     description:
-      "Padronize processos, monitore health e reduza gargalos entre time de criação e time de mídia.",
+      "Padronize processos, monitore health e reduza gargalos entre time de criacao e time de midia.",
     bullets: [
       "Status operacional centralizado",
-      "Histórico por ação e usuário",
-      "Base pronta para automações",
+      "Historico por acao e usuario",
+      "Base pronta para automacoes",
     ],
   },
 ];
@@ -138,28 +138,28 @@ export const setupSteps = [
     step: "02",
     title: "Organize pixels e criativos",
     description:
-      "Mapeie assets, domínios e criativos antes do lançamento para reduzir erro operacional.",
-    detail: "Tudo centralizado num desk só.",
+      "Mapeie assets, dominios e criativos antes do lancamento para reduzir erro operacional.",
+    detail: "Tudo centralizado num desk so.",
   },
   {
     step: "03",
     title: "Dispare campanhas em escala",
     description:
-      "Use blueprints para publicar a mesma lógica em várias contas com rastreio de ponta a ponta.",
-    detail: "Fila, status e visão de execução por lote.",
+      "Use blueprints para publicar a mesma logica em varias contas com rastreio de ponta a ponta.",
+    detail: "Fila, status e visao de execucao por lote.",
   },
 ];
 
 export const portabilityPoints = [
   {
-    title: "Domínio desacoplado",
+    title: "Dominio desacoplado",
     description:
-      "A regra da ArisHub fica no core do produto, não presa à hospedagem nem ao banco escolhido agora.",
+      "A regra da ArisHub fica no core do produto, nao presa a hospedagem nem ao banco escolhido agora.",
   },
   {
-    title: "Infra trocável",
+    title: "Infra trocavel",
     description:
-      "Vercel e Supabase entram como stack inicial barata, mas podem ser trocados sem reescrever a aplicação.",
+      "Vercel e Supabase entram como stack inicial barata, mas podem ser trocados sem reescrever a aplicacao.",
   },
   {
     title: "Pronto para escalar",
