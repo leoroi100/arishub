@@ -22,6 +22,21 @@ const statusClassMap = {
 export default function Home() {
   return (
     <main className={styles.page}>
+      <div aria-hidden="true" className={styles.pageEther}>
+        <LiquidEther
+          autoDemo
+          autoIntensity={1.9}
+          autoResumeDelay={800}
+          autoSpeed={0.42}
+          colors={["#12070c", "#6f1634", "#d44474"]}
+          cursorSize={120}
+          isViscous
+          mouseForce={18}
+          resolution={0.42}
+          viscous={38}
+        />
+      </div>
+      <div aria-hidden="true" className={styles.pageEtherVeil} />
       <div aria-hidden="true" className={styles.pageGlow} />
 
       <header className={styles.navbar}>
@@ -46,22 +61,6 @@ export default function Home() {
       </header>
 
       <section className={styles.heroSection} id="top">
-        <div aria-hidden="true" className={styles.heroEther}>
-          <LiquidEther
-            autoDemo
-            autoIntensity={1.9}
-            autoResumeDelay={800}
-            autoSpeed={0.42}
-            colors={["#1a0a10", "#6f1634", "#d44474"]}
-            cursorSize={120}
-            isViscous
-            mouseForce={18}
-            resolution={0.42}
-            viscous={38}
-          />
-        </div>
-        <div aria-hidden="true" className={styles.heroVeil} />
-
         <LiquidGlass
           className={`${styles.eyebrowGlass} ${styles.controlAccent}`}
           contentClassName={styles.eyebrowContent}
