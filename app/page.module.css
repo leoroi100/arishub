@@ -9,7 +9,7 @@
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -5;
+  z-index: -12;
   background: #000;
   pointer-events: none;
 }
@@ -22,12 +22,12 @@
 }
 
 .pageEther {
-  z-index: -4;
+  z-index: -11;
   opacity: 0.96;
 }
 
 .pageEtherVeil {
-  z-index: -3;
+  z-index: -10;
   background:
     radial-gradient(circle at 50% 18%, rgba(0, 0, 0, 0.14), transparent 24%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0.16) 24%, rgba(0, 0, 0, 0.16) 76%, rgba(0, 0, 0, 0.44) 100%);
@@ -37,7 +37,7 @@
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: -9;
   background:
     linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
@@ -51,7 +51,7 @@
   position: fixed;
   top: 4%;
   left: 50%;
-  z-index: -1;
+  z-index: -8;
   width: min(780px, 72vw);
   height: min(520px, 52vw);
   transform: translateX(-50%);
@@ -71,6 +71,8 @@
 .metricsBar,
 .section,
 .ctaSection {
+  position: relative;
+  z-index: 1;
   width: min(var(--container), calc(100% - 32px));
   margin: 0 auto;
 }
