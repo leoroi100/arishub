@@ -1,4 +1,5 @@
 import { BrandMark } from "@/components/brand-mark";
+import { FluidNavbar } from "@/components/fluid-navbar";
 import { LiquidGlass } from "@/components/liquid-glass";
 import {
   capabilityMetrics,
@@ -24,10 +25,9 @@ export default function Home() {
       <div aria-hidden="true" className={styles.pageGlow} />
 
       <header className={styles.navbar}>
-        <LiquidGlass
+        <FluidNavbar
           className={styles.navShell}
           contentClassName={styles.navShellContent}
-          variant="panel"
         >
           <a className={styles.brand} href="#top">
             <BrandMark />
@@ -68,7 +68,7 @@ export default function Home() {
               </a>
             </LiquidGlass>
           </div>
-        </LiquidGlass>
+        </FluidNavbar>
       </header>
 
       <section className={styles.heroSection} id="top">
