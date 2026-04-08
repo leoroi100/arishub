@@ -253,6 +253,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: min(1540px, calc(100% - 48px));
   padding-top: 140px;
   padding-bottom: 28px;
   text-align: center;
@@ -262,12 +263,12 @@
 .heroTitle {
   position: relative;
   z-index: 2;
-  max-width: 1240px;
+  max-width: 1480px;
   margin: 0;
-  font-size: clamp(3.45rem, 8vw, 7.5rem);
+  font-size: clamp(3.6rem, 9vw, 8.8rem);
   font-weight: 800;
-  line-height: 0.98;
-  letter-spacing: -0.075em;
+  line-height: 0.94;
+  letter-spacing: -0.082em;
   text-wrap: balance;
 }
 
@@ -278,11 +279,11 @@
 .heroDescription {
   position: relative;
   z-index: 2;
-  max-width: 920px;
+  max-width: 1120px;
   margin: 24px 0 0;
   color: var(--text-secondary);
-  font-size: 1.08rem;
-  line-height: 1.82;
+  font-size: 1.14rem;
+  line-height: 1.78;
 }
 
 .heroActions {
@@ -861,6 +862,7 @@
   }
 
   .heroSection {
+    width: min(1540px, calc(100% - 24px));
     padding-top: 176px;
     padding-bottom: 20px;
   }
@@ -888,12 +890,15 @@
 
 @media (max-width: 640px) {
   .navbar,
-  .heroSection,
   .consoleSection,
   .metricsBar,
   .section,
   .ctaSection {
     width: min(var(--container), calc(100% - 20px));
+  }
+
+  .heroSection {
+    width: calc(100% - 20px);
   }
 
   .navbar {
@@ -911,7 +916,8 @@
   }
 
   .heroTitle {
-    font-size: clamp(2.6rem, 12vw, 4.2rem);
+    max-width: 100%;
+    font-size: clamp(2.75rem, 13vw, 4.8rem);
   }
 
   .heroSection {
