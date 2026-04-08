@@ -1,12 +1,8 @@
 .outer {
-  position: fixed;
-  top: 50%;
-  left: 20px;
-  z-index: 40;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   pointer-events: none;
-  transform: translateY(-50%);
+  z-index: 40;
 }
 
 .panel {
@@ -80,11 +76,6 @@
 }
 
 @media (max-width: 900px) {
-  .outer {
-    left: 12px;
-    top: 50%;
-  }
-
   .panel {
     gap: 12px;
   }

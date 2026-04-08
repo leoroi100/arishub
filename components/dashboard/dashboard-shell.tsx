@@ -142,9 +142,15 @@ export function DashboardShell({ config, children }: DashboardShellProps) {
       </div>
       <div aria-hidden="true" className={styles.etherVeil} />
 
-      <div className={styles.stage}>{children}</div>
+      <div className={styles.frame}>
+        <aside className={styles.railLane} aria-label="Dashboard navigation">
+          <div className={styles.railSticky}>
+            <DockNav items={dockItems} activeId={activeDock} onSelect={handleDockSelect} />
+          </div>
+        </aside>
 
-      <DockNav items={dockItems} activeId={activeDock} onSelect={handleDockSelect} />
+        <div className={styles.stage}>{children}</div>
+      </div>
     </main>
   );
 }

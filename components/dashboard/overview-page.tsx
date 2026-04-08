@@ -161,6 +161,12 @@ export function OverviewPage() {
       businessCenters[0],
     [appliedBusinessCenter],
   );
+  const draftSelectedBusinessCenter = useMemo(
+    () =>
+      businessCenters.find((item) => item.value === draftBusinessCenter) ??
+      businessCenters[0],
+    [draftBusinessCenter],
+  );
 
   const draftDatesIncomplete =
     draftPeriod === "custom" && (!draftStartDate || !draftEndDate);
@@ -184,31 +190,37 @@ export function OverviewPage() {
       label: "Gastos",
       value: formatCurrency(metrics.spend),
       detail: "Investimento total consolidado no recorte selecionado.",
+      trend: appliedPeriod === "today" ? "Hoje" : "+12.4% vs recorte anterior",
     },
     {
       label: "CPA",
       value: formatCurrencyDecimal(metrics.cpa),
       detail: "Custo medio por aquisicao ou conversao registrada.",
+      trend: "-4.1% em eficiencia",
     },
     {
       label: "CPC",
       value: formatCurrencyDecimal(metrics.cpc),
       detail: "Custo medio por clique na estrutura agregada.",
+      trend: "-2.8% no clique medio",
     },
     {
       label: "Impressoes",
       value: formatInteger(metrics.impressions),
       detail: "Volume total de entrega somado entre advertisers.",
+      trend: "+18.9% de alcance",
     },
     {
       label: "Cliques",
       value: formatInteger(metrics.clicks),
       detail: "Cliques consolidados no periodo filtrado.",
+      trend: "+10.7% de resposta",
     },
     {
       label: "Conversoes",
       value: formatInteger(metrics.conversions),
       detail: "Conversoes totais da visao selecionada.",
+      trend: "+8.2% em volume final",
     },
   ];
 
@@ -251,22 +263,30 @@ export function OverviewPage() {
       </div>
 
       <SpotlightCard className={styles.filters} spotlightColor="rgba(207, 31, 63, 0.16)">
-        <label className={styles.field}>
-          <span>Business Center</span>
-          <select
-            value={draftBusinessCenter}
-            onChange={(event) => setDraftBusinessCenter(event.target.value)}
-          >
-            {businessCenters.map((item) => (
-              <option key={item.value} value={item.value}>
-                {item.label}
-              </option>
-            ))}
-          </select>
-        </label>
+        <div className={styles.filterColumn}>
+          <span className={styles.panelLabel}>Business Center</span>
+          <label className={styles.field}>
+            <span>Escopo</span>
+            <select
+              value={draftBusinessCenter}
+              onChange={(event) => setDraftBusinessCenter(event.target.value)}
+            >
+              {businessCenters.map((item) => (
+                <option key={item.value} value={item.value}>
+                  {item.label}
+                </option>
+              ))}
+            </select>
+          </label>
 
-        <div className={styles.field}>
-          <span>Periodo</span>
+          <div className={styles.inlineMeta}>
+            <span>Estrutura</span>
+            <strong>{draftSelectedBusinessCenter.label}</strong>
+          </div>
+        </div>
+
+        <div className={styles.filterColumnWide}>
+          <span className={styles.panelLabel}>Periodo</span>
           <div className={styles.periods}>
             {periodOptions.map((item) => (
               <button
@@ -281,31 +301,49 @@ export function OverviewPage() {
               </button>
             ))}
           </div>
+
+          {draftPeriod === "custom" ? (
+            <div className={styles.customDates}>
+              <label className={styles.field}>
+                <span>Data inicial</span>
+                <input
+                  type="date"
+                  value={draftStartDate}
+                  onChange={(event) => setDraftStartDate(event.target.value)}
+                />
+              </label>
+
+              <label className={styles.field}>
+                <span>Data final</span>
+                <input
+                  type="date"
+                  value={draftEndDate}
+                  onChange={(event) => setDraftEndDate(event.target.value)}
+                />
+              </label>
+            </div>
+          ) : (
+            <div className={styles.inlineMeta}>
+              <span>Leitura</span>
+              <strong>
+                {draftPeriod === "today"
+                  ? "Hoje"
+                  : draftPeriod === "yesterday"
+                    ? "Ontem"
+                    : draftPeriod === "sevenDays"
+                      ? "Ultimos 7 dias"
+                      : "Ultimos 30 dias"}
+              </strong>
+            </div>
+          )}
         </div>
 
-        {draftPeriod === "custom" ? (
-          <>
-            <label className={styles.field}>
-              <span>Data inicial</span>
-              <input
-                type="date"
-                value={draftStartDate}
-                onChange={(event) => setDraftStartDate(event.target.value)}
-              />
-            </label>
-
-            <label className={styles.field}>
-              <span>Data final</span>
-              <input
-                type="date"
-                value={draftEndDate}
-                onChange={(event) => setDraftEndDate(event.target.value)}
-              />
-            </label>
-          </>
-        ) : null}
-
         <div className={styles.actions}>
+          <span className={styles.panelLabel}>Atualizacao</span>
+          <div className={styles.appliedSnapshot}>
+            <span>Aplicado agora</span>
+            <strong>{getPeriodLabel(appliedPeriod, appliedStartDate, appliedEndDate)}</strong>
+          </div>
           <button
             type="button"
             className={styles.updateButton}
@@ -331,7 +369,7 @@ export function OverviewPage() {
           >
             <div className={styles.metricTop}>
               <span>{metric.label}</span>
-              <span className={styles.metricDot} />
+              <span className={styles.metricTrend}>{metric.trend}</span>
             </div>
             <strong>{metric.value}</strong>
             <p>{metric.detail}</p>

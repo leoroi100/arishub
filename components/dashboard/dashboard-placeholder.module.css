@@ -1,7 +1,6 @@
 .page {
-  width: min(1120px, calc(100% - 176px));
-  margin: 0 auto;
-  padding: 56px 40px 88px 138px;
+  width: min(1200px, 100%);
+  padding: 24px 16px 72px 0;
 }
 
 .card {
@@ -59,14 +58,12 @@
 
 @media (max-width: 1260px) {
   .page {
-    width: calc(100% - 76px);
-    padding-left: 122px;
+    padding-right: 8px;
   }
 }
 
 @media (max-width: 860px) {
   .page {
-    width: calc(100% - 32px);
-    padding: 40px 0 56px 96px;
+    padding-right: 0;
   }
 }
