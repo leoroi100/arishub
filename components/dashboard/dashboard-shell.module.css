@@ -1,7 +1,7 @@
 .page {
   position: relative;
   min-height: 100vh;
-  padding: 32px 32px 140px;
+  padding: 32px 32px 140px 128px;
   background: #030303;
   overflow: hidden;
 }

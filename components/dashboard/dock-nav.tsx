@@ -18,7 +18,7 @@ export interface DockNavItem {
 
 interface DockItemProps {
   item: DockNavItem;
-  mouseX: ReturnType<typeof useMotionValue<number>>;
+  mouseY: ReturnType<typeof useMotionValue<number>>;
   spring: { mass: number; stiffness: number; damping: number };
   distance: number;
   magnification: number;
@@ -29,7 +29,7 @@ interface DockItemProps {
 
 function DockItem({
   item,
-  mouseX,
+  mouseY,
   spring,
   distance,
   magnification,
@@ -49,13 +49,13 @@ function DockItem({
     return () => unsubscribe();
   }, [isHovered]);
 
-  const mouseDistance = useTransform(mouseX, (value) => {
+  const mouseDistance = useTransform(mouseY, (value) => {
     const rect = ref.current?.getBoundingClientRect() ?? {
-      left: 0,
-      width: baseItemSize,
+      top: 0,
+      height: baseItemSize,
     };
 
-    return value - rect.left - rect.width / 2;
+    return value - rect.top - rect.height / 2;
   });
 
   const targetSize = useTransform(
@@ -105,37 +105,37 @@ interface DockNavProps {
 }
 
 export function DockNav({ items, activeId, onSelect }: DockNavProps) {
-  const mouseX = useMotionValue(Infinity);
+  const mouseY = useMotionValue(Infinity);
   const isHovered = useMotionValue(0);
   const spring = useMemo(
     () => ({ mass: 0.14, stiffness: 170, damping: 14 }),
     [],
   );
-  const panelHeight = 72;
-  const dockHeight = 138;
+  const panelWidth = 76;
+  const dockWidth = 138;
   const baseItemSize = 52;
   const magnification = 74;
   const distance = 180;
 
-  const maxHeight = useMemo(
-    () => Math.max(dockHeight, magnification + magnification / 2 + 6),
-    [dockHeight, magnification],
+  const maxWidth = useMemo(
+    () => Math.max(dockWidth, magnification + magnification / 2 + 6),
+    [dockWidth, magnification],
   );
-  const heightRow = useTransform(isHovered, [0, 1], [panelHeight, maxHeight]);
-  const height = useSpring(heightRow, spring);
+  const widthRow = useTransform(isHovered, [0, 1], [panelWidth, maxWidth]);
+  const width = useSpring(widthRow, spring);
 
   return (
-    <motion.nav className={styles.outer} style={{ height }}>
+    <motion.nav className={styles.outer} style={{ width }}>
       <motion.div
         className={styles.panel}
-        style={{ height: panelHeight }}
-        onMouseMove={({ clientX }) => {
+        style={{ width: panelWidth }}
+        onMouseMove={({ clientY }) => {
           isHovered.set(1);
-          mouseX.set(clientX);
+          mouseY.set(clientY);
         }}
         onMouseLeave={() => {
           isHovered.set(0);
-          mouseX.set(Infinity);
+          mouseY.set(Infinity);
         }}
         aria-label="Dashboard dock"
       >
@@ -143,7 +143,7 @@ export function DockNav({ items, activeId, onSelect }: DockNavProps) {
           <DockItem
             key={item.id}
             item={item}
-            mouseX={mouseX}
+            mouseY={mouseY}
             spring={spring}
             distance={distance}
             magnification={magnification}
