@@ -81,23 +81,15 @@
 
 @media (max-width: 900px) {
   .outer {
-    right: 0;
-    bottom: 14px;
-    left: 0;
-    top: auto;
-    justify-content: center;
-    transform: none;
+    left: 12px;
   }
 
   .panel {
-    flex-direction: row;
-    gap: 10px;
-    width: calc(100vw - 24px);
-    justify-content: space-between;
+    gap: 12px;
   }
 
   .label {
-    top: -8px;
-    left: 50%;
+    top: 50%;
+    left: calc(100% + 10px);
   }
 }
