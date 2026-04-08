@@ -92,6 +92,7 @@ export function DashboardShell({ config, children }: DashboardShellProps) {
 
   const dockIcons = useMemo<Record<string, React.ReactNode>>(
     () => ({
+      overview: <OverviewIcon />,
       "tiktok-accounts": <TikTokIcon />,
       "business-centers": <GridIcon />,
       advertisers: <OverviewIcon />,
@@ -133,7 +134,7 @@ export function DashboardShell({ config, children }: DashboardShellProps) {
   }
 
   const activeDock =
-    dockItems.find((item) => item.href === pathname)?.id ?? "tiktok-accounts";
+    dockItems.find((item) => item.href === pathname)?.id ?? "overview";
 
   return (
     <main className={styles.page}>

@@ -117,6 +117,7 @@ export const dashboardActivity = [
 ];
 
 export const dashboardDockItems = [
+  { id: "overview", label: "Overview", href: "/dashboard" },
   { id: "tiktok-accounts", label: "Contas TikTok", href: "/dashboard/tiktok-accounts" },
   { id: "business-centers", label: "BCs", href: "/dashboard/business-centers" },
   { id: "advertisers", label: "Contas de anuncios", href: "/dashboard/advertisers" },
