@@ -3,20 +3,22 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 
 let browserClient: SupabaseClient | null = null;
 
-export function hasBrowserSupabaseConfig() {
-  return Boolean(
-    process.env.NEXT_PUBLIC_SUPABASE_URL &&
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-  );
+export interface BrowserSupabaseConfig {
+  supabaseUrl: string | null;
+  supabaseAnonKey: string | null;
 }
 
-export function getBrowserSupabase() {
+export function hasBrowserSupabaseConfig(config: BrowserSupabaseConfig) {
+  return Boolean(config.supabaseUrl && config.supabaseAnonKey);
+}
+
+export function getBrowserSupabase(config: BrowserSupabaseConfig) {
   if (browserClient) {
     return browserClient;
   }
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const supabaseUrl = config.supabaseUrl;
+  const supabaseAnonKey = config.supabaseAnonKey;
 
   if (!supabaseUrl || !supabaseAnonKey) {
     throw new Error(

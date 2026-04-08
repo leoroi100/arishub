@@ -4,13 +4,18 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { DashboardShell } from "@/components/dashboard/dashboard-shell";
 import {
+  type BrowserSupabaseConfig,
   getBrowserSupabase,
   hasBrowserSupabaseConfig,
 } from "@/lib/supabase/client";
 
-export function DashboardAuthGate() {
+interface DashboardAuthGateProps {
+  config: BrowserSupabaseConfig;
+}
+
+export function DashboardAuthGate({ config }: DashboardAuthGateProps) {
   const router = useRouter();
-  const isConfigured = hasBrowserSupabaseConfig();
+  const isConfigured = hasBrowserSupabaseConfig(config);
   const [state, setState] = useState<
     | { status: "loading" }
     | { status: "ready"; email: string }
@@ -22,7 +27,7 @@ export function DashboardAuthGate() {
       return;
     }
 
-    const supabase = getBrowserSupabase();
+    const supabase = getBrowserSupabase(config);
 
     void supabase.auth.getUser().then(({ data }) => {
       if (!data.user) {
@@ -51,7 +56,7 @@ export function DashboardAuthGate() {
     });
 
     return () => subscription.unsubscribe();
-  }, [isConfigured, router]);
+  }, [config, isConfigured, router]);
 
   if (state.status === "missing-config") {
     return (
@@ -103,5 +108,5 @@ export function DashboardAuthGate() {
     );
   }
 
-  return <DashboardShell userEmail={state.email} />;
+  return <DashboardShell userEmail={state.email} config={config} />;
 }

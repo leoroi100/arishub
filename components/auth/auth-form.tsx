@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import {
+  type BrowserSupabaseConfig,
   getBrowserSupabase,
   hasBrowserSupabaseConfig,
 } from "@/lib/supabase/client";
@@ -12,11 +13,12 @@ type Mode = "login" | "signup";
 
 interface AuthFormProps {
   redirectTo: string;
+  config: BrowserSupabaseConfig;
 }
 
-export function AuthForm({ redirectTo }: AuthFormProps) {
+export function AuthForm({ redirectTo, config }: AuthFormProps) {
   const router = useRouter();
-  const isConfigured = hasBrowserSupabaseConfig();
+  const isConfigured = hasBrowserSupabaseConfig(config);
   const [mode, setMode] = useState<Mode>("login");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -39,7 +41,7 @@ export function AuthForm({ redirectTo }: AuthFormProps) {
         );
       }
 
-      const supabase = getBrowserSupabase();
+      const supabase = getBrowserSupabase(config);
 
       if (mode === "login") {
         const { error: signInError } = await supabase.auth.signInWithPassword({

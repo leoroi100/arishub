@@ -9,6 +9,10 @@ interface LoginPageProps {
 }
 
 export default async function LoginPage({ searchParams }: LoginPageProps) {
+  const config = {
+    supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL ?? null,
+    supabaseAnonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? null,
+  };
   const resolvedSearchParams = await searchParams;
   const redirectTo =
     typeof resolvedSearchParams.redirectTo === "string"
@@ -71,7 +75,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
         </div>
 
         <div className={styles.formColumn}>
-          <AuthForm redirectTo={redirectTo} />
+          <AuthForm redirectTo={redirectTo} config={config} />
         </div>
       </section>
     </main>

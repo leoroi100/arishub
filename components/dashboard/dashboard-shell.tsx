@@ -14,7 +14,10 @@ import {
   dashboardModules,
   dashboardQueue,
 } from "@/lib/dashboard-data";
-import { getBrowserSupabase } from "@/lib/supabase/client";
+import {
+  type BrowserSupabaseConfig,
+  getBrowserSupabase,
+} from "@/lib/supabase/client";
 import styles from "./dashboard-shell.module.css";
 
 function OverviewIcon() {
@@ -74,9 +77,10 @@ function ExitIcon() {
 
 interface DashboardShellProps {
   userEmail: string;
+  config: BrowserSupabaseConfig;
 }
 
-export function DashboardShell({ userEmail }: DashboardShellProps) {
+export function DashboardShell({ userEmail, config }: DashboardShellProps) {
   const router = useRouter();
   const [activeDock, setActiveDock] = useState("overview");
   const [isSigningOut, setIsSigningOut] = useState(false);
@@ -105,7 +109,7 @@ export function DashboardShell({ userEmail }: DashboardShellProps) {
     setIsSigningOut(true);
 
     try {
-      await getBrowserSupabase().auth.signOut();
+      await getBrowserSupabase(config).auth.signOut();
       router.replace("/login");
       router.refresh();
     } finally {
