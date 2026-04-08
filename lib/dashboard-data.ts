@@ -117,9 +117,10 @@ export const dashboardActivity = [
 ];
 
 export const dashboardDockItems = [
-  { id: "overview", label: "Overview", href: "/dashboard" },
-  { id: "modules", label: "Modulos", href: "/dashboard/modules" },
-  { id: "queue", label: "Fila", href: "/dashboard/queue" },
-  { id: "activity", label: "Pulse", href: "/dashboard/activity" },
+  { id: "tiktok-accounts", label: "Contas TikTok", href: "/dashboard/tiktok-accounts" },
+  { id: "business-centers", label: "BCs", href: "/dashboard/business-centers" },
+  { id: "advertisers", label: "Contas de anuncios", href: "/dashboard/advertisers" },
+  { id: "pixels", label: "Pixels", href: "/dashboard/pixels" },
+  { id: "appeals", label: "Apelos", href: "/dashboard/appeals" },
   { id: "logout", label: "Sair" },
 ];

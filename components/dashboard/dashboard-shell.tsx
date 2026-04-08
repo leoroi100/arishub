@@ -15,8 +15,9 @@ import styles from "./dashboard-shell.module.css";
 function OverviewIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M4 11.5L12 4L20 11.5V20H4V11.5Z" stroke="currentColor" strokeWidth="1.7" />
-      <path d="M9 20V13H15V20" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M7 6H17" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+      <path d="M7 12H17" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+      <path d="M7 18H13" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
     </svg>
   );
 }
@@ -24,10 +25,9 @@ function OverviewIcon() {
 function GridIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="4" y="4" width="6" height="6" rx="1.4" stroke="currentColor" strokeWidth="1.7" />
-      <rect x="14" y="4" width="6" height="6" rx="1.4" stroke="currentColor" strokeWidth="1.7" />
-      <rect x="4" y="14" width="6" height="6" rx="1.4" stroke="currentColor" strokeWidth="1.7" />
-      <rect x="14" y="14" width="6" height="6" rx="1.4" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M4 19V8.2C4 7.54 4.54 7 5.2 7H18.8C19.46 7 20 7.54 20 8.2V19" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M9 7V19" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M15 7V19" stroke="currentColor" strokeWidth="1.7" />
     </svg>
   );
 }
@@ -46,12 +46,26 @@ function QueueIcon() {
 function PulseIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="5" y="5" width="14" height="14" rx="3" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M9 9H15V15H9V9Z" stroke="currentColor" strokeWidth="1.7" />
+    </svg>
+  );
+}
+
+function TikTokIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
-        d="M3 12H7L10 7L14 17L17 12H21"
+        d="M14.5 5C14.9 6.4 16 7.6 17.4 8.1C18.2 8.4 18.9 8.5 19.5 8.5"
         stroke="currentColor"
         strokeWidth="1.7"
         strokeLinecap="round"
-        strokeLinejoin="round"
+      />
+      <path
+        d="M14.5 5V14.8C14.5 17.3 12.5 19.3 10 19.3C7.5 19.3 5.5 17.3 5.5 14.8C5.5 12.4 7.4 10.4 9.8 10.3"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
       />
     </svg>
   );
@@ -78,10 +92,11 @@ export function DashboardShell({ config, children }: DashboardShellProps) {
 
   const dockIcons = useMemo<Record<string, React.ReactNode>>(
     () => ({
-      overview: <OverviewIcon />,
-      modules: <GridIcon />,
-      queue: <QueueIcon />,
-      activity: <PulseIcon />,
+      "tiktok-accounts": <TikTokIcon />,
+      "business-centers": <GridIcon />,
+      advertisers: <OverviewIcon />,
+      pixels: <PulseIcon />,
+      appeals: <QueueIcon />,
       logout: <ExitIcon />,
     }),
     [],
@@ -118,7 +133,7 @@ export function DashboardShell({ config, children }: DashboardShellProps) {
   }
 
   const activeDock =
-    dockItems.find((item) => item.href === pathname)?.id ?? "overview";
+    dockItems.find((item) => item.href === pathname)?.id ?? "tiktok-accounts";
 
   return (
     <main className={styles.page}>

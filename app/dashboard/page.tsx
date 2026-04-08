@@ -1,5 +1,5 @@
-import { OverviewPage } from "@/components/dashboard/overview-page";
+import { redirect } from "next/navigation";
 
 export default function DashboardPage() {
-  return <OverviewPage />;
+  redirect("/dashboard/tiktok-accounts");
 }
