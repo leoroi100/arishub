@@ -117,9 +117,9 @@ export const dashboardActivity = [
 ];
 
 export const dashboardDockItems = [
-  { id: "overview", label: "Overview" },
-  { id: "modules", label: "Modulos" },
-  { id: "queue", label: "Fila" },
-  { id: "activity", label: "Pulse" },
+  { id: "overview", label: "Overview", href: "/dashboard" },
+  { id: "modules", label: "Modulos", href: "/dashboard/modules" },
+  { id: "queue", label: "Fila", href: "/dashboard/queue" },
+  { id: "activity", label: "Pulse", href: "/dashboard/activity" },
   { id: "logout", label: "Sair" },
 ];

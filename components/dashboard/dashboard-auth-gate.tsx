@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { DashboardShell } from "@/components/dashboard/dashboard-shell";
@@ -11,9 +12,10 @@ import {
 
 interface DashboardAuthGateProps {
   config: BrowserSupabaseConfig;
+  children: ReactNode;
 }
 
-export function DashboardAuthGate({ config }: DashboardAuthGateProps) {
+export function DashboardAuthGate({ config, children }: DashboardAuthGateProps) {
   const router = useRouter();
   const isConfigured = hasBrowserSupabaseConfig(config);
   const [state, setState] = useState<
@@ -108,5 +110,5 @@ export function DashboardAuthGate({ config }: DashboardAuthGateProps) {
     );
   }
 
-  return <DashboardShell config={config} />;
+  return <DashboardShell config={config}>{children}</DashboardShell>;
 }

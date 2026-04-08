@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
+import type { ReactNode } from "react";
+import { useMemo } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import LiquidEther from "@/components/liquid-ether";
 import { DockNav, type DockNavItem } from "@/components/dashboard/dock-nav";
 import { dashboardDockItems } from "@/lib/dashboard-data";
@@ -68,11 +69,12 @@ function ExitIcon() {
 
 interface DashboardShellProps {
   config: BrowserSupabaseConfig;
+  children: ReactNode;
 }
 
-export function DashboardShell({ config }: DashboardShellProps) {
+export function DashboardShell({ config, children }: DashboardShellProps) {
   const router = useRouter();
-  const [activeDock, setActiveDock] = useState("overview");
+  const pathname = usePathname();
 
   const dockIcons = useMemo<Record<string, React.ReactNode>>(
     () => ({
@@ -103,12 +105,20 @@ export function DashboardShell({ config }: DashboardShellProps) {
   }
 
   function handleDockSelect(id: string) {
-    setActiveDock(id);
+    const item = dockItems.find((entry) => entry.id === id);
 
     if (id === "logout") {
       void handleSignOut();
+      return;
+    }
+
+    if (item?.href) {
+      router.push(item.href);
     }
   }
+
+  const activeDock =
+    dockItems.find((item) => item.href === pathname)?.id ?? "overview";
 
   return (
     <main className={styles.page}>
@@ -131,6 +141,8 @@ export function DashboardShell({ config }: DashboardShellProps) {
         />
       </div>
       <div aria-hidden="true" className={styles.etherVeil} />
+
+      <div className={styles.stage}>{children}</div>
 
       <DockNav items={dockItems} activeId={activeDock} onSelect={handleDockSelect} />
     </main>
