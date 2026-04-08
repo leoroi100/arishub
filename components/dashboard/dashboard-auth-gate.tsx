@@ -108,5 +108,5 @@ export function DashboardAuthGate({ config }: DashboardAuthGateProps) {
     );
   }
 
-  return <DashboardShell userEmail={state.email} config={config} />;
+  return <DashboardShell config={config} />;
 }

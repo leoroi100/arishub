@@ -1,12 +1,11 @@
 .outer {
   position: fixed;
-  top: 50%;
+  top: 24px;
   left: 20px;
   z-index: 40;
   display: flex;
   justify-content: flex-start;
   pointer-events: none;
-  transform: translateY(-50%);
 }
 
 .panel {
@@ -82,6 +81,7 @@
 @media (max-width: 900px) {
   .outer {
     left: 12px;
+    top: 16px;
   }
 
   .panel {
