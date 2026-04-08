@@ -1,0 +1,44 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(18, 18, 20, 0.96) 0%, rgba(8, 8, 10, 0.98) 100%);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  isolation: isolate;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --spotlight-color: rgba(207, 31, 63, 0.18);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background:
+    radial-gradient(circle 320px at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 62%);
+  opacity: 0.88;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 180ms ease;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 18%),
+    linear-gradient(120deg, rgba(207, 31, 63, 0.05) 0%, transparent 34%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}

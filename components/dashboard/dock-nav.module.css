@@ -1,0 +1,91 @@
+.outer {
+  position: fixed;
+  right: 0;
+  bottom: 20px;
+  left: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.panel {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 0 12px 12px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(18, 18, 20, 0.9) 0%, rgba(8, 8, 10, 0.96) 100%);
+  box-shadow:
+    0 24px 90px rgba(0, 0, 0, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  pointer-events: auto;
+  backdrop-filter: blur(24px) saturate(145%);
+  -webkit-backdrop-filter: blur(24px) saturate(145%);
+}
+
+.item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(25, 25, 29, 0.92) 0%, rgba(8, 8, 10, 0.98) 100%);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  color: rgba(252, 252, 253, 0.84);
+  cursor: pointer;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    background 180ms ease;
+}
+
+.item:hover,
+.item:focus-visible,
+.itemActive {
+  border-color: rgba(207, 31, 63, 0.32);
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(49, 12, 24, 0.95) 0%, rgba(18, 8, 12, 0.98) 100%);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  white-space: nowrap;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(8, 8, 10, 0.92);
+  color: rgba(252, 252, 253, 0.9);
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+@media (max-width: 900px) {
+  .outer {
+    bottom: 14px;
+  }
+
+  .panel {
+    gap: 10px;
+    width: calc(100vw - 24px);
+    justify-content: space-between;
+  }
+}

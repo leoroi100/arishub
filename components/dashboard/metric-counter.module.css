@@ -1,0 +1,115 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  padding: 24px 24px 22px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(18, 18, 20, 0.96) 0%, rgba(8, 8, 10, 0.98) 100%);
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 28%),
+    radial-gradient(circle at top right, rgba(207, 31, 63, 0.12), transparent 38%);
+  pointer-events: none;
+}
+
+.label,
+.valueRow,
+.detail {
+  position: relative;
+  z-index: 1;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: rgba(252, 252, 253, 0.66);
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.valueRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.suffix {
+  margin-bottom: 10px;
+  color: rgba(207, 31, 63, 0.95);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.detail {
+  margin: 12px 0 0;
+  color: rgba(252, 252, 253, 0.64);
+  line-height: 1.6;
+}
+
+.counter {
+  position: relative;
+  display: inline-flex;
+  overflow: hidden;
+  line-height: 1;
+  color: #fcfcfd;
+  font-size: 4.4rem;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+}
+
+.digit {
+  position: relative;
+  width: 1ch;
+  font-variant-numeric: tabular-nums;
+}
+
+.decimal {
+  width: fit-content;
+}
+
+.number {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gradientMask {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.gradientTop,
+.gradientBottom {
+  position: absolute;
+  width: 100%;
+  height: 12px;
+}
+
+.gradientTop {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(8, 8, 10, 0.64), transparent);
+}
+
+.gradientBottom {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(8, 8, 10, 0.64), transparent);
+}
+
+@media (max-width: 900px) {
+  .counter {
+    font-size: 3.2rem;
+  }
+}

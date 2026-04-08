@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BrandMark } from "@/components/brand-mark";
 import LiquidEther from "@/components/liquid-ether";
 import { LiquidGlass } from "@/components/liquid-glass";
@@ -52,13 +53,19 @@ export default function Home() {
               </span>
             </a>
 
-            <nav className={styles.navLinks} aria-label="Navegacao principal">
-              {navItems.map((item) => (
-                <a key={item.href} href={item.href}>
-                  {item.label}
-                </a>
-              ))}
-            </nav>
+            <div className={styles.navRight}>
+              <nav className={styles.navLinks} aria-label="Navegacao principal">
+                {navItems.map((item) => (
+                  <a key={item.href} href={item.href}>
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
+
+              <Link className={styles.navLogin} href="/login">
+                Entrar
+              </Link>
+            </div>
           </div>
         </div>
       </header>
