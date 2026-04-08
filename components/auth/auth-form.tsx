@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { getBrowserSupabase } from "@/lib/supabase/client";
+import {
+  getBrowserSupabase,
+  hasBrowserSupabaseConfig,
+} from "@/lib/supabase/client";
 import styles from "./auth-form.module.css";
 
 type Mode = "login" | "signup";
@@ -13,6 +16,7 @@ interface AuthFormProps {
 
 export function AuthForm({ redirectTo }: AuthFormProps) {
   const router = useRouter();
+  const isConfigured = hasBrowserSupabaseConfig();
   const [mode, setMode] = useState<Mode>("login");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -29,6 +33,12 @@ export function AuthForm({ redirectTo }: AuthFormProps) {
     const password = String(formData.get("password") ?? "");
 
     try {
+      if (!isConfigured) {
+        throw new Error(
+          "Supabase publico nao configurado no frontend. Confira NEXT_PUBLIC_SUPABASE_URL e NEXT_PUBLIC_SUPABASE_ANON_KEY na Vercel e gere um novo deploy.",
+        );
+      }
+
       const supabase = getBrowserSupabase();
 
       if (mode === "login") {
@@ -120,8 +130,13 @@ export function AuthForm({ redirectTo }: AuthFormProps) {
 
         {error ? <p className={styles.error}>{error}</p> : null}
         {message ? <p className={styles.message}>{message}</p> : null}
+        {!isConfigured ? (
+          <p className={styles.error}>
+            As envs publicas do Supabase nao chegaram no frontend.
+          </p>
+        ) : null}
 
-        <button className={styles.submit} type="submit" disabled={loading}>
+        <button className={styles.submit} type="submit" disabled={loading || !isConfigured}>
           {loading
             ? "Processando..."
             : mode === "login"

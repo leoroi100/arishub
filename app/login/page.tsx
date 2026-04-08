@@ -1,29 +1,14 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { BrandMark } from "@/components/brand-mark";
 import { AuthForm } from "@/components/auth/auth-form";
 import LiquidEther from "@/components/liquid-ether";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
 import styles from "./page.module.css";
-
-export const dynamic = "force-dynamic";
 
 interface LoginPageProps {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
 export default async function LoginPage({ searchParams }: LoginPageProps) {
-  const supabase = await createSupabaseServerClient();
-  if (supabase) {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    if (user) {
-      redirect("/dashboard");
-    }
-  }
-
   const resolvedSearchParams = await searchParams;
   const redirectTo =
     typeof resolvedSearchParams.redirectTo === "string"
@@ -86,18 +71,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
         </div>
 
         <div className={styles.formColumn}>
-          {supabase ? (
-            <AuthForm redirectTo={redirectTo} />
-          ) : (
-            <div className={styles.configCard}>
-              <strong>Configure o Supabase para liberar o login.</strong>
-              <p>
-                Preencha `NEXT_PUBLIC_SUPABASE_URL` e
-                `NEXT_PUBLIC_SUPABASE_ANON_KEY` nas envs da Vercel para ativar a
-                autenticacao do SaaS.
-              </p>
-            </div>
-          )}
+          <AuthForm redirectTo={redirectTo} />
         </div>
       </section>
     </main>
