@@ -265,10 +265,10 @@
   z-index: 2;
   max-width: 1480px;
   margin: 0;
-  font-size: clamp(3.6rem, 9vw, 8.8rem);
+  font-size: clamp(3.1rem, 7.8vw, 7.1rem);
   font-weight: 800;
-  line-height: 0.94;
-  letter-spacing: -0.082em;
+  line-height: 0.95;
+  letter-spacing: -0.078em;
   text-wrap: balance;
 }
 
