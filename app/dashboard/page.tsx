@@ -1,3 +1,5 @@
+import { OverviewPage } from "@/components/dashboard/overview-page";
+
 export default function DashboardPage() {
-  return null;
+  return <OverviewPage />;
 }
