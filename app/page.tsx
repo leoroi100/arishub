@@ -3,7 +3,6 @@ import LiquidEther from "@/components/liquid-ether";
 import { LiquidGlass } from "@/components/liquid-glass";
 import {
   capabilityMetrics,
-  heroSignals,
   heroTableRows,
   navItems,
   platformHighlights,
@@ -65,15 +64,6 @@ export default function Home() {
       </header>
 
       <section className={styles.heroSection} id="top">
-        <LiquidGlass
-          className={`${styles.eyebrowGlass} ${styles.controlAccent}`}
-          contentClassName={styles.eyebrowContent}
-          tone="accent"
-          variant="pill"
-        >
-          <span className={styles.eyebrow}>Infra premium para escalar TikTok Ads</span>
-        </LiquidGlass>
-
         <h1 className={styles.heroTitle} id="visao-geral">
           Controle <span>Business Centers</span>, criativos, pixels e
           campanhas em massa num unico sistema.
@@ -108,19 +98,6 @@ export default function Home() {
                 Conhecer os diferenciais
               </a>
             </LiquidGlass>
-        </div>
-
-        <div className={styles.signalRow}>
-          {heroSignals.map((signal) => (
-            <LiquidGlass
-              className={styles.signalGlass}
-              contentClassName={styles.signalContent}
-              key={signal}
-              variant="pill"
-            >
-              <span className={styles.signalChip}>{signal}</span>
-            </LiquidGlass>
-          ))}
         </div>
       </section>
 
